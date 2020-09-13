@@ -10,7 +10,7 @@ body{
 .card {
   text-align: center;
   margin: 1rem;
-  background-color: rgb(79, 79, 79);
+  background-color: rgba(47, 47, 47, 0.295);
   color: white;
   min-width: 300px;
 
