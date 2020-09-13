@@ -1,27 +1,28 @@
 import React from 'react';
 import thrones from '../Data/thrones.json';
 // import SimpleSelect from './Select';
+
 import { Button, Typography } from '@material-ui/core';
 
-console.log(thrones._embedded.episodes);
+// console.log(thrones._embedded.episodes);
 
 class Episodes extends React.Component {
   state = {
     episodeArray: thrones._embedded.episodes,
-    season1: thrones._embedded.episodes.filter((season) => season.season === 1),
-    // season2: thrones._embedded.episodes.filter((season) => season.season === 2),
-    // season3: thrones._embedded.episodes.filter((season) => season.season === 3),
-    // season4: thrones._embedded.episodes.filter((season) => season.season === 4),
-    // season5: thrones._embedded.episodes.filter((season) => season.season === 5),
-    season6: thrones._embedded.episodes.filter((season) => season.season === 6),
+
+    season4: thrones._embedded.episodes.filter((season) => season.season === 4),
   };
 
-  HandleSeason = (value) => {
-    const seasons = [...this.state.episodeArray];
+  HandleSeason = () => {
+    // const seasons = [...this.state.episodeArray];
     this.setState({
-      episodeArray: this.state.season6
-    })
-    console.log('you clicked')
+      episodeArray: this.state.season4,
+    });
+  };
+  ShowAllSeasons = () => {
+    this.setState({
+      episodeArray: thrones._embedded.episodes,
+    });
   };
 
   render() {
@@ -29,16 +30,19 @@ class Episodes extends React.Component {
       <React.Fragment>
         <div className='center'>
           <Typography variant='h3' gutterBottom>
-            Game of Thrones Episodes
+            Game of Thrones Episode Data
           </Typography>
+          <div className='button'>
+            <Button variant='contained' onClick={this.HandleSeason}>
+              My Favorite Season
+            </Button>
+          </div>
           <Button
-            color='primary'
             variant='contained'
-            onClick={this.HandleSeason}
+            onClick={this.ShowAllSeasons}
           >
-           Filter Season 6
+            Show All Seasons
           </Button>
-          
         </div>
         <div className='container'>
           {/* <SimpleSelect /> */}

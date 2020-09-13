@@ -1,3 +1,6 @@
+body{
+  background-color: rgb(174, 174, 174);
+}
 .container {
   display: flex;
   flex-wrap: wrap;
@@ -7,11 +10,18 @@
 .card {
   text-align: center;
   margin: 1rem;
-  background-color: rgb(155, 155, 155);
+  background-color: rgb(79, 79, 79);
   color: white;
   min-width: 300px;
 
 }
 .center {
   text-align: center;
+}
+.header{
+  background-color: rgb(197, 197, 197);
+  color: white;
+}
+.button{
+  margin: 1rem;
 }
