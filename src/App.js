@@ -35,9 +35,8 @@ class App extends React.Component {
         <div className='center container'>
           {this.state.episodes.map((episode) => {
             return (
-              <div className="card" >
+              <div className="card" key={episode.id} >
               <Card
-                key={episode.id}
                 src={episode.image.medium}
                 name={episode.name}
                 season={episode.season}
@@ -55,9 +54,8 @@ class App extends React.Component {
         <div className='center container'>
           {this.state.favoriteSeason.map((episode) => {
             return (
-              <div className="card">
+              <div className="card" key={episode.id}>
               <Card
-                key={episode.id}
                 src={episode.image.medium}
                 name={episode.name}
                 season={episode.season}
@@ -75,12 +73,12 @@ class App extends React.Component {
         <Header />
         <div className='button'>
           <Button variant='contained' onClick={this.toggleEpisodesHandler}>
-            Show All Episodes
+            Show/Hide All Episodes
           </Button>
         </div>
         <div className='button'>
           <Button variant='contained' onClick={this.showFavoriteSeason}>
-            My Favorite Season
+            Show/Hide My Favorite Season
           </Button>
         </div>
         {episodes}
