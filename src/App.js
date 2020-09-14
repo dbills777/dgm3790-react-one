@@ -32,9 +32,10 @@ class App extends React.Component {
     let episodes = null;
     if (this.state.showEpisodes) {
       episodes = (
-        <div className='center'>
+        <div className='center container'>
           {this.state.episodes.map((episode) => {
             return (
+              <div className="card" >
               <Card
                 key={episode.id}
                 src={episode.image.medium}
@@ -42,6 +43,7 @@ class App extends React.Component {
                 season={episode.season}
                 number={episode.number}
               />
+              </div>
             );
           })}
         </div>
@@ -50,9 +52,10 @@ class App extends React.Component {
     let favorite = null;
     if (this.state.showFavorite) {
       favorite = (
-        <div className='center'>
+        <div className='center container'>
           {this.state.favoriteSeason.map((episode) => {
             return (
+              <div className="card">
               <Card
                 key={episode.id}
                 src={episode.image.medium}
@@ -60,6 +63,7 @@ class App extends React.Component {
                 season={episode.season}
                 number={episode.number}
               />
+              </div>
             );
           })}
         </div>
