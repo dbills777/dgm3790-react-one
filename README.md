@@ -1,6 +1,6 @@
 ## 1. Use create-react-app to bootstrap your project
 
-npmx create-react-app
+npx create-react-app
 
 ## 2. Use a data source of your own choosing in JSON format that has lists of JavaScript objects within it (feel free to use the JSON sample files I've posted in Canvas)
 

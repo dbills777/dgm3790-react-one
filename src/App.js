@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import Header from './Components/Header';
-// import Card from './Components/Card';
 import thrones from './Data/thrones.json';
 import { Button } from '@material-ui/core';
 import ComplexGrid from './Components/Card';
@@ -84,7 +83,6 @@ class App extends React.Component {
         </div>
         {episodes}
         {favorite}
-        {/* <Episodes /> */}
       </div>
     );
   }
