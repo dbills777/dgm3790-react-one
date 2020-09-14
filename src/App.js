@@ -3,7 +3,7 @@ import './App.css';
 import Header from './Components/Header';
 import Card from './Components/Card';
 import thrones from './Data/thrones.json';
-import { Button, Typography } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 
 class App extends React.Component {
   state = {
