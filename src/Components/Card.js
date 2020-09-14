@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function ComplexGrid(props) {
-  const {name, src, season, number, date} = props
+  const { name, src, season, number } = props;
   const classes = useStyles();
 
   return (

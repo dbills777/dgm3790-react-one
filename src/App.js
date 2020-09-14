@@ -42,7 +42,6 @@ class App extends React.Component {
                   name={episode.name}
                   season={episode.season}
                   number={episode.number}
-                  date={episode.airdate}
                 />
               </div>
             );
@@ -62,7 +61,6 @@ class App extends React.Component {
                   name={episode.name}
                   season={episode.season}
                   number={episode.number}
-                  date={episode.airdate}
                 />
               </div>
             );
