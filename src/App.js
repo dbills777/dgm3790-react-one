@@ -1,9 +1,10 @@
 import React from 'react';
 import './App.css';
 import Header from './Components/Header';
-import Card from './Components/Card';
+// import Card from './Components/Card';
 import thrones from './Data/thrones.json';
 import { Button } from '@material-ui/core';
+import ComplexGrid from './Components/Card';
 
 class App extends React.Component {
   state = {
@@ -32,16 +33,17 @@ class App extends React.Component {
     let episodes = null;
     if (this.state.showEpisodes) {
       episodes = (
-        <div className='center container'>
+        <div className=' container'>
           {this.state.episodes.map((episode) => {
             return (
-              <div className="card" key={episode.id} >
-              <Card
-                src={episode.image.medium}
-                name={episode.name}
-                season={episode.season}
-                number={episode.number}
-              />
+              <div className='card' key={episode.id}>
+                <ComplexGrid
+                  src={episode.image.original}
+                  name={episode.name}
+                  season={episode.season}
+                  number={episode.number}
+                  date={episode.airdate}
+                />
               </div>
             );
           })}
@@ -54,13 +56,14 @@ class App extends React.Component {
         <div className='center container'>
           {this.state.favoriteSeason.map((episode) => {
             return (
-              <div className="card" key={episode.id}>
-              <Card
-                src={episode.image.medium}
-                name={episode.name}
-                season={episode.season}
-                number={episode.number}
-              />
+              <div className='card' key={episode.id}>
+                <ComplexGrid
+                  src={episode.image.original}
+                  name={episode.name}
+                  season={episode.season}
+                  number={episode.number}
+                  date={episode.airdate}
+                />
               </div>
             );
           })}

@@ -5,12 +5,10 @@ body{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  margin: 1rem;
 }
 .card {
   text-align: center;
   margin: 1rem;
-  background-color: rgba(47, 47, 47, 0.295);
   color: white;
   min-width: 300px;
 
