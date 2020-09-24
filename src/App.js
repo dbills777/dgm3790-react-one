@@ -8,7 +8,7 @@ import Card from './Components/Card';
 import Quote from './Components/Quote'
 
 const App = (props) => {
-  const [resourceType, setResourceType] = useState('characters?name');
+  const [resourceType, setResourceType] = useState('quote/random?author');
   const [items, setItems] = useState([]);
   const [quotes, setQuotes] = useState([]);
   const [query, setQuery] = useState('');
