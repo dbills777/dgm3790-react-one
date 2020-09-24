@@ -53,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ListCard(props) {
   const {items}= props
-console.log(items)
+// console.log(items)
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
   
