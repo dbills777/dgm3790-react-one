@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -15,11 +15,9 @@ import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 
-
-
 const useStyles = makeStyles((theme) => ({
-  appBar:{
-    backgroundColor: 'black'
+  appBar: {
+    backgroundColor: 'black',
   },
   grow: {
     flexGrow: 1,
@@ -28,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2),
   },
   title: {
-    color: "white",
+    color: 'white',
 
     display: 'none',
     [theme.breakpoints.up('sm')]: {
@@ -86,9 +84,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
-export default function PrimarySearchAppBar( {getQuery, props}) {
-
+export default function PrimarySearchAppBar({ getQuery, props }) {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -169,12 +165,12 @@ export default function PrimarySearchAppBar( {getQuery, props}) {
       </MenuItem>
     </Menu>
   );
-const [text, setText] = useState(' ');
-const onChange = (q) => {
-  setText(q);
-  getQuery(q);
-  console.log(q)
-};
+  const [text, setText] = useState("");
+  const onChange = (q) => {
+    setText(q);
+    getQuery(q);
+    console.log(q);
+  };
   return (
     <div className={classes.grow}>
       <AppBar position='static' className={classes.appBar}>
@@ -195,7 +191,7 @@ const onChange = (q) => {
               <SearchIcon />
             </div>
             <InputBase
-              // placeholder='Search…'
+              placeholder={text}
               classes={{
                 root: classes.inputRoot,
                 input: classes.inputInput,
@@ -210,12 +206,12 @@ const onChange = (q) => {
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
             <IconButton aria-label='show 4 new mails' color='inherit'>
-              <Badge badgeContent={4} color='secondary'>
+              <Badge badgeContent={'Br'} color='secondary'>
                 <MailIcon />
               </Badge>
             </IconButton>
             <IconButton aria-label='show 17 new notifications' color='inherit'>
-              <Badge badgeContent={17} color='secondary'>
+              <Badge badgeContent={'Ba'} color='secondary'>
                 <NotificationsIcon />
               </Badge>
             </IconButton>
