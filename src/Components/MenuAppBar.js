@@ -211,7 +211,7 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
               </Badge>
             </IconButton>
             <IconButton aria-label='show 17 new notifications' color='inherit'>
-              <Badge badgeContent={'Ba'} color='secondary'>
+              <Badge badgeContent={'Ba'} color='primary'>
                 <NotificationsIcon />
               </Badge>
             </IconButton>
