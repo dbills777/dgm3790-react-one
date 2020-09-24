@@ -18,19 +18,14 @@ const App = (props) => {
       const result = await axios(
         `https://www.breakingbadapi.com/api/${resourceType}=${query}`
       )
-      if(resourceType=='characters?name'){
+      if(resourceType==='characters?name'){
         setItems(result.data);
-        console.log(items)
-        console.log(resourceType)
       }
-      if (resourceType == 'quote/random?author') {
+      if (resourceType === 'quote/random?author') {
         setQuotes(result.data);
-        console.log(quotes);
-        console.log(resourceType);
       }
-      if (resourceType == 'episodes') {
+      if (resourceType === 'episodes') {
         // setQuotes(result.data);
-        console.log(quotes);
         setResourceType('quote/random?author')
       }
     };
