@@ -4,13 +4,10 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import MenuAppBar from './Components/MenuAppBar';
-import { GridList } from '@material-ui/core';
-import ImageGridList from './Components/GridList'
 import Card from './Components/Card';
 
 const App = (props) => {
   const [items, setItems] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
   
   useEffect(() => {
     const fetchItems = async () => {
