@@ -50,8 +50,8 @@ const App = (props) => {
         <button onClick={() => setResourceType('episodes')}>NewQuote</button>
       </div>
       <div className='container'>
-        {resourceType == 'characters?name' ? <Card items={items} /> : null}
-        {resourceType == 'quote/random?author' ? (
+        {resourceType === 'characters?name' ? <Card items={items} /> : null}
+        {resourceType === 'quote/random?author' ? (
           <Quote quotes={quotes} cast={items} />
         ) : null}
       </div>
