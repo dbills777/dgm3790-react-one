@@ -26,6 +26,7 @@ const App = (props) => {
     <>
       <MenuAppBar getQuery={(q) => setQuery(q)} />
       {/* <ImageGridList items={items}  /> */}
+      
       <div className='container'>
         <Card items={items} />
       </div>

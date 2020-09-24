@@ -18,6 +18,9 @@ import MoreIcon from '@material-ui/icons/MoreVert';
 
 
 const useStyles = makeStyles((theme) => ({
+  appBar:{
+    backgroundColor: 'black'
+  },
   grow: {
     flexGrow: 1,
   },
@@ -25,6 +28,8 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2),
   },
   title: {
+    color: "white",
+
     display: 'none',
     [theme.breakpoints.up('sm')]: {
       display: 'block',
@@ -137,7 +142,7 @@ export default function PrimarySearchAppBar( {getQuery, props}) {
     >
       <MenuItem>
         <IconButton aria-label='show 4 new mails' color='inherit'>
-          <Badge badgeContent={4} color='secondary'>
+          <Badge badgeContent={11} color='secondary'>
             <MailIcon />
           </Badge>
         </IconButton>
@@ -172,7 +177,7 @@ const onChange = (q) => {
 };
   return (
     <div className={classes.grow}>
-      <AppBar position='static'>
+      <AppBar position='static' className={classes.appBar}>
         <Toolbar>
           <IconButton
             edge='start'
@@ -190,7 +195,7 @@ const onChange = (q) => {
               <SearchIcon />
             </div>
             <InputBase
-              placeholder='Search…'
+              // placeholder='Search…'
               classes={{
                 root: classes.inputRoot,
                 input: classes.inputInput,
