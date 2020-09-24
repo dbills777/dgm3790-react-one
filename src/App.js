@@ -26,17 +26,16 @@ const App = (props) => {
         setQuotes(result.data);
       }
       if (resourceType === 'episodes') {
-        // setQuotes(result.data);
         setResourceType('quote/random?author')
       }
     };
     fetchItems();
   }, [query, resourceType]);
 
-  useEffect(() => {
-    console.log('render')
+  // useEffect(() => {
+  //   console.log('render')
     
-  }, [resourceType])
+  // }, [resourceType])
   return (
     <>
       <MenuAppBar getQuery={(search) => setQuery(search)} />

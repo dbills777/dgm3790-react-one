@@ -8,15 +8,13 @@ export default function Quote(props) {
     maxWidth: '50%',
   };
 
-  console.log(quotes);
-
   return quotes.map((item) => {
     const author = item.author;
+
     const image = cast.filter((person) => {
-      return person.name === author || person.nickname===author;
+      return person.name === author || person.nickname === author;
     });
     const photo = image.map((person) => person.img);
-    console.log(image);
     return (
       <div key={item.id} style={style}>
         <em>
@@ -25,7 +23,9 @@ export default function Quote(props) {
           </h1>
         </em>
         <p className='flex'>
-          <img alt={photo.id} className='img' src={photo}></img>
+          {image.length ? (
+            <img alt={photo.id} className='img' src={photo}></img>
+          ) : null}
           <strong></strong> -{item.author}, {item.series}
         </p>
       </div>
