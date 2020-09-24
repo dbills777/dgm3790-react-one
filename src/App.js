@@ -18,7 +18,7 @@ const App = (props) => {
       );
       console.log(result.data);
       setItems(result.data);
-      setIsLoading(false);
+      // setIsLoading(false);
     };
     fetchItems();
   }, [query]);
