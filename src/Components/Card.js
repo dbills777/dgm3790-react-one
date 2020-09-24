@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, withTheme } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
@@ -20,20 +20,21 @@ const useStyles = makeStyles((theme) => ({
     height: '100%',
     backgroundColor: 'gray',
     margin: '10px',
+    borderRight: '3px solid #018619',
   },
   media: {
     width: '100%',
     height: '150px',
-
     paddingTop: '56.25%', // 16:9
   },
-  clicked:{
-    color: 'red'
+  clicked: {
+    color: 'red',
   },
 
   expand: {
     transform: 'rotate(0deg)',
     marginLeft: 'auto',
+    color: "white",
     transition: theme.transitions.create('transform', {
       duration: theme.transitions.duration.shortest,
     }),
@@ -46,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
     padding: '2px',
     margin: '5px',
     borderRadius: '50%',
-    backgroundColor: 'black',
+    backgroundColor: 'light-gray',
   },
 }));
 
