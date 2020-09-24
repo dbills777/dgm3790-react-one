@@ -20,13 +20,14 @@ const App = (props) => {
       setItems(result.data);
       // setIsLoading(false);
     };
-    fetchItems();
+      fetchItems();
   }, [query]);
   return (
     <>
       <MenuAppBar getQuery={(q) => setQuery(q)} />
       {/* <ImageGridList items={items}  /> */}
-      
+      <div className='image'></div>
+
       <div className='container'>
         <Card items={items} />
       </div>

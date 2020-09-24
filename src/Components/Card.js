@@ -16,7 +16,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 350,
+    maxWidth: 250,
     height: '100%',
     backgroundColor: 'gray',
     margin: '10px',
@@ -49,9 +49,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: 'black',
   },
 }));
-// const favoriteClicked = () => {
-//   // className={classes.clicked}
-// };
+
 export default function ListCard(props) {
   const {items}= props
 console.log(items)
@@ -91,7 +89,7 @@ return (
       </Typography>
     </CardContent>
     <CardActions disableSpacing>
-      <IconButton aria-label='add to favorites'>
+      <IconButton aria-label='add to favorites' >
         <FavoriteIcon />
       </IconButton>
       <IconButton aria-label='share'>
@@ -110,7 +108,7 @@ return (
     </CardActions>
     <Collapse in={expanded} timeout='auto' unmountOnExit>
       <CardContent>
-        <Typography paragraph>Info</Typography>
+        <Typography paragraph><strong>INFO:</strong></Typography>
         <Typography paragraph>
           <strong>Occupation: </strong>
           {item.occupation.join(", ")}
