@@ -13,7 +13,7 @@ export default function Quote(props) {
   return quotes.map((item) => {
     const author = item.author;
     const image = cast.filter((person) => {
-      return person.name === author;
+      return person.name === author || person.nickname===author;
     });
     const photo = image.map((person) => person.img);
     console.log(image);

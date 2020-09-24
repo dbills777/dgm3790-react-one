@@ -20,6 +20,7 @@ const App = (props) => {
       )
       if(resourceType==='characters?name'){
         setItems(result.data);
+        console.log(result)
       }
       if (resourceType === 'quote/random?author') {
         setQuotes(result.data);
