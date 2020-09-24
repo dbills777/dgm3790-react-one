@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -14,6 +14,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -81,7 +82,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-export default function PrimarySearchAppBar(props) {
+export default function PrimarySearchAppBar( {getQuery, props}) {
 
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -163,7 +164,12 @@ export default function PrimarySearchAppBar(props) {
       </MenuItem>
     </Menu>
   );
-
+const [text, setText] = useState(' ');
+const onChange = (q) => {
+  setText(q);
+  getQuery(q);
+  console.log(q)
+};
   return (
     <div className={classes.grow}>
       <AppBar position='static'>
@@ -177,7 +183,7 @@ export default function PrimarySearchAppBar(props) {
             <MenuIcon />
           </IconButton>
           <Typography className={classes.title} variant='h6' noWrap>
-            Material-UI
+            Search a Character
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
@@ -189,8 +195,10 @@ export default function PrimarySearchAppBar(props) {
                 root: classes.inputRoot,
                 input: classes.inputInput,
               }}
-              // value='text'
-              // onChange={(event) => onChange(event.target.value)}
+              type='text'
+              autoFocus
+              onChange={(event) => onChange(event.target.value)}
+              value={text}
               inputProps={{ 'aria-label': 'search' }}
             />
           </div>

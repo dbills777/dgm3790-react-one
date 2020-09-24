@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
   },
   media: {
     width: '100%',
-    height: '300px',
+    height: '150px',
 
     paddingTop: '56.25%', // 16:9
   },
@@ -49,9 +49,9 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: 'black',
   },
 }));
-const favoriteClicked = () => {
-  // className={classes.clicked}
-};
+// const favoriteClicked = () => {
+//   // className={classes.clicked}
+// };
 export default function ListCard(props) {
   const {items}= props
 console.log(items)
@@ -92,7 +92,7 @@ return (
     </CardContent>
     <CardActions disableSpacing>
       <IconButton aria-label='add to favorites'>
-        <FavoriteIcon onClick={favoriteClicked}/>
+        <FavoriteIcon />
       </IconButton>
       <IconButton aria-label='share'>
         <ShareIcon />

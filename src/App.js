@@ -8,19 +8,23 @@ import Card from './Components/Card';
 
 const App = (props) => {
   const [items, setItems] = useState([]);
-  
+  const [query, setQuery] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     const fetchItems = async () => {
-      const result = await axios(`https://www.breakingbadapi.com/api/characters`);
+      const result = await axios(
+        `https://www.breakingbadapi.com/api/characters?name=${query}`
+      );
       console.log(result.data);
       setItems(result.data);
-      // setIsLoading(false);
+      setIsLoading(false);
     };
     fetchItems();
-  }, []);
+  }, [query]);
   return (
     <>
-      <MenuAppBar search={onchange}/>
+      <MenuAppBar getQuery={(q) => setQuery(q)} />
       {/* <ImageGridList items={items}  /> */}
       <div className='container'>
         <Card items={items} />
