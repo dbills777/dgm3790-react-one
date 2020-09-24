@@ -166,10 +166,10 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
     </Menu>
   );
   const [text, setText] = useState("");
-  const onChange = (q) => {
-    setText(q);
-    getQuery(q);
-    console.log(q);
+  const onChange = (search) => {
+    setText(search);
+    getQuery(search);
+    console.log(search);
   };
   return (
     <div className={classes.grow}>

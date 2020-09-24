@@ -24,7 +24,7 @@ const App = (props) => {
   }, [query]);
   return (
     <>
-      <MenuAppBar getQuery={(q) => setQuery(q)} />
+      <MenuAppBar getQuery={(search) => setQuery(search)} />
       {/* <ImageGridList items={items}  /> */}
       <div className='image'></div>
 
