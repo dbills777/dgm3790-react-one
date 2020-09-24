@@ -77,11 +77,7 @@ return (
       title={classes.title}
       subheader={item.name}
     />
-    <CardMedia
-      className={classes.media}
-      image={item.img}
-      title='Paella dish'
-    />
+    <CardMedia className={classes.media} image={item.img} title='Paella dish' />
     <CardContent>
       <Typography variant='body2' color='textSecondary' component='p'>
         <strong>Nick Name: </strong>
@@ -89,7 +85,7 @@ return (
       </Typography>
     </CardContent>
     <CardActions disableSpacing>
-      <IconButton aria-label='add to favorites' >
+      <IconButton aria-label='add to favorites'>
         <FavoriteIcon />
       </IconButton>
       <IconButton aria-label='share'>
@@ -108,10 +104,19 @@ return (
     </CardActions>
     <Collapse in={expanded} timeout='auto' unmountOnExit>
       <CardContent>
-        <Typography paragraph><strong>INFO:</strong></Typography>
+        <Typography paragraph>
+          <strong>INFO:</strong>
+        </Typography>
+        {
+          item.birthday !=="Unknown" ?  <Typography paragraph>
+          <strong>DOB: </strong>
+          {item.birthday}
+        </Typography>: null
+        }
+        
         <Typography paragraph>
           <strong>Occupation: </strong>
-          {item.occupation.join(", ")}
+          {item.occupation.join(', ')}
         </Typography>
         <Typography paragraph>
           <strong>Portrayed by : </strong>
