@@ -9,7 +9,7 @@ import Card from './Components/Card';
 const App = (props) => {
   const [items, setItems] = useState([]);
   const [query, setQuery] = useState('');
-  const [isLoading, setIsLoading] = useState(true);
+  // const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchItems = async () => {
