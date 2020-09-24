@@ -6,6 +6,7 @@ export default function Quote(props) {
     color: 'white',
     fontSize: '1.5rem',
     maxWidth: '50%',
+
   };
 
   return quotes.map((item) => {
@@ -17,7 +18,7 @@ export default function Quote(props) {
     const photo = image.map((person) => person.img);
     return (
       <div key={item.id} style={style}>
-        <em>
+        <em className="italics">
           <h1>
             <strong></strong> "{item.quote}"
           </h1>
