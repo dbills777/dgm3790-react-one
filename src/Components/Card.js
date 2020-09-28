@@ -58,10 +58,11 @@ export default function ListCard(props) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
-  const handleExpandClick = () => {
+  const handleExpandClick = (id) => {
+    console.log(items.char_id)
       setExpanded(!expanded);
   };
-  return items.map((item) => {
+  return items.map((item, items) => {
     return (
       <Card key={item.char_id} className={classes.root}>
         <CardHeader
@@ -101,6 +102,7 @@ export default function ListCard(props) {
               [classes.expandOpen]: expanded,
             })}
             onClick={handleExpandClick}
+            
             aria-expanded={expanded}
             aria-label='show more'
           >
