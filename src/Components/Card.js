@@ -16,7 +16,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 250,
+    maxWidth: 200,
     height: '100%',
     backgroundColor: 'gray',
     margin: '10px',
@@ -32,9 +32,11 @@ const useStyles = makeStyles((theme) => ({
   },
 
   expand: {
+    
+    maxWidth: 200,
     transform: 'rotate(0deg)',
     marginLeft: 'auto',
-    color: "white",
+    color: 'white',
     transition: theme.transitions.create('transform', {
       duration: theme.transitions.duration.shortest,
     }),

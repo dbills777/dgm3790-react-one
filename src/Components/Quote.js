@@ -5,7 +5,8 @@ export default function Quote(props) {
   const style = {
     color: 'white',
     fontSize: '1.5rem',
-    maxWidth: '50%',
+    maxWidth: '75%',
+    textAlign: 'center'
 
   };
 
