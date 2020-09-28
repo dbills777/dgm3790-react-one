@@ -6,7 +6,6 @@ export default function Quote(props) {
     color: 'white',
     fontSize: '1.5rem',
     maxWidth: '75%',
-    textAlign: 'center'
 
   };
 
