@@ -32,10 +32,6 @@ const App = (props) => {
     fetchItems();
   }, [query, resourceType]);
 
-  // useEffect(() => {
-  //   console.log('render')
-
-  // }, [resourceType])
   return (
     <>
       <MenuAppBar getQuery={(search) => setQuery(search)} />

@@ -21,18 +21,18 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: 'gray',
     margin: '10px',
     borderRight: '3px solid #018619',
+    borderBottom: '3px solid #018619',
   },
   media: {
     width: '100%',
     height: '150px',
-    paddingTop: '56.25%', // 16:9
+    paddingTop: '56.25%',
   },
   clicked: {
     color: 'red',
   },
 
   expand: {
-    
     maxWidth: 200,
     transform: 'rotate(0deg)',
     marginLeft: 'auto',
@@ -54,85 +54,86 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function ListCard(props) {
-  const {items}= props
-// console.log(items)
+  const { items } = props;
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
-  
+
   const handleExpandClick = () => {
-    setExpanded(!expanded);
+      setExpanded(!expanded);
   };
-  return(
-  items.map((item)=>{
-return (
-  <Card key={item.char_id} className={classes.root}>
-    <CardHeader
-      avatar={
-        <Avatar aria-label='recipe' className={classes.avatar}>
-          ID {item.char_id}
-        </Avatar>
-      }
-      action={
-        <IconButton aria-label='settings'>
-          <MoreVertIcon />
-        </IconButton>
-      }
-      title={classes.title}
-      subheader={item.name}
-    />
-    <CardMedia className={classes.media} image={item.img} title='Paella dish' />
-    <CardContent>
-      <Typography variant='body2' color='textSecondary' component='p'>
-        <strong>Nick Name: </strong>
-        {item.nickname}
-      </Typography>
-    </CardContent>
-    <CardActions disableSpacing>
-      <IconButton aria-label='add to favorites'>
-        <FavoriteIcon />
-      </IconButton>
-      <IconButton aria-label='share'>
-        <ShareIcon />
-      </IconButton>
-      <IconButton
-        className={clsx(classes.expand, {
-          [classes.expandOpen]: expanded,
-        })}
-        onClick={handleExpandClick}
-        aria-expanded={expanded}
-        aria-label='show more'
-      >
-        <ExpandMoreIcon />
-      </IconButton>
-    </CardActions>
-    <Collapse in={expanded} timeout='auto' unmountOnExit>
-      <CardContent>
-        <Typography paragraph>
-          <strong>INFO:</strong>
-        </Typography>
-        {
-          item.birthday !=="Unknown" ?  <Typography paragraph>
-          <strong>DOB: </strong>
-          {item.birthday}
-        </Typography>: null
-        }
-        
-        <Typography paragraph>
-          <strong>Occupation: </strong>
-          {item.occupation.join(', ')}
-        </Typography>
-        <Typography paragraph>
-          <strong>Portrayed by : </strong>
-          {item.portrayed}
-        </Typography>
-        <Typography paragraph>
-          <strong>Living Status: </strong>
-          {item.status}
-        </Typography>
-      </CardContent>
-    </Collapse>
-  </Card>
-);
-  })
-  )
+  return items.map((item) => {
+    return (
+      <Card key={item.char_id} className={classes.root}>
+        <CardHeader
+          avatar={
+            <Avatar aria-label='recipe' className={classes.avatar}>
+              ID {item.char_id}
+            </Avatar>
+          }
+          action={
+            <IconButton aria-label='settings'>
+              <MoreVertIcon />
+            </IconButton>
+          }
+          title={classes.title}
+          subheader={item.name}
+        />
+        <CardMedia
+          className={classes.media}
+          image={item.img}
+          title='Paella dish'
+        />
+        <CardContent>
+          <Typography variant='body2' color='textSecondary' component='p'>
+            <strong>Nick Name: </strong>
+            {item.nickname}
+          </Typography>
+        </CardContent>
+        <CardActions disableSpacing>
+          <IconButton aria-label='add to favorites'>
+            <FavoriteIcon />
+          </IconButton>
+          <IconButton aria-label='share'>
+            <ShareIcon />
+          </IconButton>
+          <IconButton
+            className={clsx(classes.expand, {
+              [classes.expandOpen]: expanded,
+            })}
+            onClick={handleExpandClick}
+            aria-expanded={expanded}
+            aria-label='show more'
+          >
+            <ExpandMoreIcon />
+          </IconButton>
+        </CardActions>
+        <Collapse in={expanded} timeout='auto' unmountOnExit>
+          <CardContent>
+            <Typography paragraph>
+              <strong>INFO:</strong>
+            </Typography>
+            {item.birthday !== 'Unknown' ? (
+              <Typography paragraph>
+                <strong>DOB: </strong>
+                {item.birthday}
+              </Typography>
+            ) : null}
+
+            <Typography paragraph>
+              <strong>Occupation: </strong>
+              {item.occupation.join(', ')}
+            </Typography>
+            <Typography paragraph>
+              <strong>Portrayed by : </strong>
+              {item.portrayed}
+            </Typography>
+            <Typography paragraph>
+              <strong>Living Status: </strong>
+              {item.status}
+            </Typography>
+          </CardContent>
+        </Collapse>
+      </Card>
+    );
+  });
 }
