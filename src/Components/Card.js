@@ -58,9 +58,8 @@ export default function ListCard(props) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
-  const handleExpandClick = (id) => {
-    console.log(items.char_id)
-      setExpanded(!expanded);
+  const handleExpandClick = () => {
+    setExpanded(!expanded);
   };
   return items.map((item, items) => {
     return (
@@ -101,8 +100,7 @@ export default function ListCard(props) {
             className={clsx(classes.expand, {
               [classes.expandOpen]: expanded,
             })}
-            onClick={handleExpandClick}
-            
+            onClick={()=>handleExpandClick(items.char_id)}
             aria-expanded={expanded}
             aria-label='show more'
           >
