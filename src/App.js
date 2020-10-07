@@ -1,4 +1,3 @@
-// MJEroC1Zq5HQCntk68LN;
 
 import './App.css';
 import React, { useState, useEffect } from 'react';
@@ -56,7 +55,7 @@ const App = (props) => {
       <div className='container'>
         {resourceType === 'characters?name' ? <Card items={items} /> : null}
         {resourceType === 'quote/random?author' ? (
-          <Quote quotes={quotes} cast={items} />
+          <Quote quotes={quotes} cast={items} key= {items.id}/>
         ) : null}
       </div>
     </>
