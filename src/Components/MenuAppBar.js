@@ -211,7 +211,7 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
               />
             </div>
             <div>
-              <NavLink className={classes.navLinks} to='/'>
+              <NavLink className={classes.navLinks} to='/login'>
                 Login
               </NavLink>
               <NavLink className={classes.navLinks} to='/characters'>

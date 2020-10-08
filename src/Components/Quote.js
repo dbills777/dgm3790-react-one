@@ -17,8 +17,7 @@ export default function Quote() {
       console.log(result.data);
     };
     fetchItems();
-  }, []);
-
+  },[] );
   return quotes.map((item) => {
     // const author = item.author;
 

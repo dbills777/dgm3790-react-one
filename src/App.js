@@ -42,9 +42,9 @@ const App = () => {
 
         <div className='container'>
           <Switch>
-            <Route path='/characters'  component={Card} />
+            <Route path='/login'  component={Login} />
             <Route path='/quotes'  component={Quotes} />
-            <Route path='/' exact component={Login} />
+            <Route path='/characters' component={Card} />
           </Switch>
         </div>
     </>
