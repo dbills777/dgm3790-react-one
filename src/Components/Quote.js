@@ -3,6 +3,7 @@ import axios from 'axios';
 
 export default function Quote() {
   const [quotes, setQuotes] = useState([]);
+  const [quotechange, SetQuotechange] = useState('something')
 
   const style = {
     color: 'white',
@@ -18,9 +19,10 @@ export default function Quote() {
       console.log(result.data);
     };
     fetchItems();
-  }, []);
+    SetQuotechange(quotes)
+  }, [quotechange]);
   const getNewQuote = () => {
-    window.location.reload()
+    SetQuotechange(quotes)
   };
   return quotes.map((item) => {
     // const author = item.author;
