@@ -1,10 +1,8 @@
 import './App.css';
-import React, { useEffect, useState } from 'react';
 import MenuAppBar from './Components/MenuAppBar';
 import Card from './Components/Card';
 import Quotes from './Components/Quote';
 import Login from './Components/Login';
-import axios from 'axios'
 import { Switch, Route } from 'react-router-dom';
 
 const App = () => {
