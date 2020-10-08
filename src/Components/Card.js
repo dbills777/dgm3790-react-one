@@ -71,16 +71,7 @@ export default function ListCard() {
      };
     getCharacters();
   }, [url]);
-  // useEffect(() => {
-  //   const fetchItems = async () => {
-  //     const result = await axios(
-  //       `https://www.breakingbadapi.com/api/characters`
-  //     );
-  //     setItems(result.data);
-  //     console.log(result.data);
-  //   };
-  //   fetchItems();
-  // }, []);
+ 
 
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
