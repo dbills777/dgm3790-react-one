@@ -1,32 +1,43 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
-export default function Quote(props) {
-  const { quotes, cast } = props;
+export default function Quote() {
+  const [quotes, setQuotes]= useState([])
   const style = {
     color: 'white',
     fontSize: '1.5rem',
     maxWidth: '75%',
 
   };
+  useEffect(() => {
+    const fetchItems = async () => {
+      const result = await axios(
+        `https://www.breakingbadapi.com/api/quote/random?author`
+      );
+      setQuotes(result.data);
+      console.log(result.data);
+    };
+    fetchItems();
+  }, []);
 
   return quotes.map((item) => {
-    const author = item.author;
+    // const author = item.author;
 
-    const image = cast.filter((person) => {
-      return person.name === author || person.nickname === author;
-    });
-    const photo = image.map((person) => person.img);
+    // const image = cast.filter((person) => {
+    //   return person.name === author || person.nickname === author;
+    // });
+    // const photo = image.map((person) => person.img);
     return (
-      <div key={item.id} style={style}>
+      <div key={item.quote_id} style={style}>
         <em className="italics">
           <h1>
             <strong></strong> "{item.quote}"
           </h1>
         </em>
         <p className='flex'>
-          {image.length ? (
+          {/* {image.length ? (
             <img alt={photo.id} className='img' src={photo}></img>
-          ) : null}
+          ) : null} */}
           <strong></strong> -{item.author}, {item.series}
         </p>
       </div>

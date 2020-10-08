@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import axios from 'axios'
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
@@ -53,14 +54,29 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
 export default function ListCard(props) {
-  const { items } = props;
+  // const [query, setQuery] = useState('');
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    const fetchItems = async () => {
+      const result = await axios(
+        `https://www.breakingbadapi.com/api/characters`
+      );
+      setItems(result.data)
+      console.log(result.data)
+      
+    };
+    fetchItems();
+  }, []);
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+
   return items.map((item, items) => {
     return (
       <Card key={item.char_id} className={classes.root}>

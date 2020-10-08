@@ -14,6 +14,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -165,82 +166,92 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
       </MenuItem>
     </Menu>
   );
-  const [text, setText] = useState("");
+  const [text, setText] = useState('');
   const onChange = (search) => {
     setText(search);
     getQuery(search);
     console.log(search);
   };
   return (
-    <div className={classes.grow}>
-      <AppBar position='static' className={classes.appBar}>
-        <Toolbar>
-          <IconButton
-            edge='start'
-            className={classes.menuButton}
-            color='inherit'
-            aria-label='open drawer'
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography className={classes.title} variant='h6' noWrap>
-            Search a Character
-          </Typography>
-          <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
+    <Router>
+      <div className={classes.grow}>
+        <AppBar position='static' className={classes.appBar}>
+          <Toolbar>
+            <IconButton
+              edge='start'
+              className={classes.menuButton}
+              color='inherit'
+              aria-label='open drawer'
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography className={classes.title} variant='h6' noWrap>
+              Search a Character
+            </Typography>
+            <div className={classes.search}>
+              <div className={classes.searchIcon}>
+                <SearchIcon />
+              </div>
+              <InputBase
+                placeholder={text}
+                classes={{
+                  root: classes.inputRoot,
+                  input: classes.inputInput,
+                }}
+                type='text'
+                autoFocus
+                onChange={(event) => onChange(event.target.value)}
+                value={text}
+                inputProps={{ 'aria-label': 'search' }}
+              />
             </div>
-            <InputBase
-              placeholder={text}
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              type='text'
-              autoFocus
-              onChange={(event) => onChange(event.target.value)}
-              value={text}
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </div>
-          <div className={classes.grow} />
-          <div className={classes.sectionDesktop}>
-            <IconButton aria-label='show 4 new mails' color='inherit'>
-              <Badge badgeContent={'Br'} color='secondary'>
-                <MailIcon />
-              </Badge>
-            </IconButton>
-            <IconButton aria-label='show 17 new notifications' color='inherit'>
-              <Badge badgeContent={'Ba'} color='primary'>
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
-            <IconButton
-              edge='end'
-              aria-label='account of current user'
-              aria-controls={menuId}
-              aria-haspopup='true'
-              onClick={handleProfileMenuOpen}
-              color='inherit'
-            >
-              <AccountCircle />
-            </IconButton>
-          </div>
-          <div className={classes.sectionMobile}>
-            <IconButton
-              aria-label='show more'
-              aria-controls={mobileMenuId}
-              aria-haspopup='true'
-              onClick={handleMobileMenuOpen}
-              color='inherit'
-            >
-              <MoreIcon />
-            </IconButton>
-          </div>
-        </Toolbar>
-      </AppBar>
-      {renderMobileMenu}
-      {renderMenu}
-    </div>
+            <div>
+              <Link to='/'>Login</Link>
+              <Link to='/characters'>characters</Link>
+              <Link to='/quotes'>Quotes</Link>
+            </div>
+            <div className={classes.grow} />
+            <div className={classes.sectionDesktop}>
+              <IconButton aria-label='show 4 new mails' color='inherit'>
+                <Badge badgeContent={'Br'} color='secondary'>
+                  <MailIcon />
+                </Badge>
+              </IconButton>
+              <IconButton
+                aria-label='show 17 new notifications'
+                color='inherit'
+              >
+                <Badge badgeContent={'Ba'} color='primary'>
+                  <NotificationsIcon />
+                </Badge>
+              </IconButton>
+              <IconButton
+                edge='end'
+                aria-label='account of current user'
+                aria-controls={menuId}
+                aria-haspopup='true'
+                onClick={handleProfileMenuOpen}
+                color='inherit'
+              >
+                <AccountCircle />
+              </IconButton>
+            </div>
+            <div className={classes.sectionMobile}>
+              <IconButton
+                aria-label='show more'
+                aria-controls={mobileMenuId}
+                aria-haspopup='true'
+                onClick={handleMobileMenuOpen}
+                color='inherit'
+              >
+                <MoreIcon />
+              </IconButton>
+            </div>
+          </Toolbar>
+        </AppBar>
+        {renderMobileMenu}
+        {renderMenu}
+      </div>
+    </Router>
   );
 }
