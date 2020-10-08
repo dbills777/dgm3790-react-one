@@ -1,11 +1,11 @@
-
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import MenuAppBar from './Components/MenuAppBar';
 import Card from './Components/Card';
 import Quote from './Components/Quote';
-
+import { Route, Switch } from 'react-router-dom';
+import Login from './Components/Login'
 const App = (props) => {
   const [resourceType, setResourceType] = useState('characters?name');
   const [items, setItems] = useState([]);
@@ -51,12 +51,19 @@ const App = (props) => {
         <button className='btn' onClick={() => setResourceType('episodes')}>
           NewQuote
         </button>
+        <button className='btn' onClick={() => setResourceType('login')}>
+          Login
+        </button>
       </div>
       <div className='container'>
+        {/* <Switch route = '/login'>
+          <Login/>
+        </Switch> */}
         {resourceType === 'characters?name' ? <Card items={items} /> : null}
         {resourceType === 'quote/random?author' ? (
-          <Quote quotes={quotes} cast={items} key= {items.id}/>
+          <Quote quotes={quotes} cast={items} key={items.id} />
         ) : null}
+        {resourceType === 'login'? <Login/>: null}
       </div>
     </>
   );
