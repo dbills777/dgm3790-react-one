@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react';
-import axios from 'axios'
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
@@ -54,7 +54,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
 export default function ListCard(props) {
   // const [query, setQuery] = useState('');
   const [items, setItems] = useState([]);
@@ -64,12 +63,12 @@ export default function ListCard(props) {
       const result = await axios(
         `https://www.breakingbadapi.com/api/characters`
       );
-      setItems(result.data)
-      console.log(result.data)
-      
+      setItems(result.data);
+      console.log(result.data);
     };
     fetchItems();
   }, []);
+  
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -116,7 +115,7 @@ export default function ListCard(props) {
             className={clsx(classes.expand, {
               [classes.expandOpen]: expanded,
             })}
-            onClick={()=>handleExpandClick(items.char_id)}
+            onClick={() => handleExpandClick(items.char_id)}
             aria-expanded={expanded}
             aria-label='show more'
           >

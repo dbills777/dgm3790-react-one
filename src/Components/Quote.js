@@ -3,20 +3,25 @@ import axios from 'axios';
 
 export default function Quote() {
   const [quotes, setQuotes] = useState([]);
+
   const style = {
     color: 'white',
     fontSize: '1.5rem',
     maxWidth: '75%',
   };
   useEffect(() => {
-   (async () => {
+    const fetchItems = async () => {
       const result = await axios(
         `https://www.breakingbadapi.com/api/quote/random?author`
       );
       setQuotes(result.data);
       console.log(result.data);
-    })();
-  },[] );
+    };
+    fetchItems();
+  }, []);
+  const getNewQuote = () => {
+    window.location.reload()
+  };
   return quotes.map((item) => {
     // const author = item.author;
 
@@ -37,6 +42,7 @@ export default function Quote() {
           ) : null} */}
           <strong></strong> -{item.author}, {item.series}
         </p>
+        <button onClick={getNewQuote}>New quote</button>
       </div>
     );
   });

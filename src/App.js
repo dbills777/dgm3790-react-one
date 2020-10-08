@@ -38,9 +38,9 @@ const App = () => {
 
       <div className='container'>
         <Switch>
-          <Route path='/login' component={Login} />
-          <Route path='/quotes' component={Quotes} />
-          <Route path='/characters' component={Card} />
+          <Route path='/login' component={() => <Login />} />
+          <Route path='/quotes' component={() => <Quotes />} />
+          <Route path='/characters' component={() => <Card />} />
         </Switch>
       </div>
     </>
