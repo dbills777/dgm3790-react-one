@@ -4,7 +4,6 @@ import axios from 'axios';
 import MenuAppBar from './Components/MenuAppBar';
 import Card from './Components/Card';
 import Quote from './Components/Quote';
-import { Route, Switch } from 'react-router-dom';
 import Login from './Components/Login'
 const App = (props) => {
   const [resourceType, setResourceType] = useState('characters?name');
