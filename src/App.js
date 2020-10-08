@@ -1,4 +1,5 @@
 import './App.css';
+import React from 'react';
 import MenuAppBar from './Components/MenuAppBar';
 import Card from './Components/Card';
 import Quotes from './Components/Quote';
