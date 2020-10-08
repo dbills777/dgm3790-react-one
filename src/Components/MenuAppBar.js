@@ -14,7 +14,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
-import { BrowserRouter as Router, Link } from 'react-router-dom';
+import { BrowserRouter as Router, NavLink } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -82,6 +82,11 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up('md')]: {
       display: 'none',
     },
+  },
+  navLinks: {
+    marginRight: '1rem',
+    color: '#fff',
+    textDecoration: 'none',
   },
 }));
 
@@ -206,9 +211,15 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
               />
             </div>
             <div>
-              <Link to='/'>Login</Link>
-              <Link to='/characters'>characters</Link>
-              <Link to='/quotes'>Quotes</Link>
+              <NavLink className={classes.navLinks} to='/'>
+                Login
+              </NavLink>
+              <NavLink className={classes.navLinks} to='/characters'>
+                Characters
+              </NavLink>
+              <NavLink className={classes.navLinks} to='/quotes'>
+                Quotes
+              </NavLink>
             </div>
             <div className={classes.grow} />
             <div className={classes.sectionDesktop}>

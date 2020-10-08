@@ -2,12 +2,11 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 export default function Quote() {
-  const [quotes, setQuotes]= useState([])
+  const [quotes, setQuotes] = useState([]);
   const style = {
     color: 'white',
     fontSize: '1.5rem',
     maxWidth: '75%',
-
   };
   useEffect(() => {
     const fetchItems = async () => {
@@ -29,7 +28,7 @@ export default function Quote() {
     // const photo = image.map((person) => person.img);
     return (
       <div key={item.quote_id} style={style}>
-        <em className="italics">
+        <em className='italics'>
           <h1>
             <strong></strong> "{item.quote}"
           </h1>

@@ -4,7 +4,11 @@ import MenuAppBar from './Components/MenuAppBar';
 import Card from './Components/Card';
 import Quotes from './Components/Quote';
 import Login from './Components/Login';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import {
+
+  Switch,
+  Route,
+} from 'react-router-dom';
 
 const App = () => {
   // const [resourceType, setResourceType] = useState('login');
@@ -33,52 +37,16 @@ const App = () => {
 
   return (
     <>
-      <Router>
         <MenuAppBar />
         <div className='image'></div>
 
-        {/* <div className='buttons'>
-        <button
-          className='btn'
-          onClick={() => setResourceType('characters?name')}
-        >
-          characters
-        </button>
-        <button
-          className='btn'
-          onClick={() => setResourceType('quote/random?author')}
-        >
-          Get a Random Quote
-        </button>
-        <button className='btn' onClick={() => setResourceType('episodes')}>
-          Get a Random Quote
-        </button>
-        <button className='btn' onClick={() => setResourceType('login')}>
-          Login
-        </button>
-      </div> */}
         <div className='container'>
           <Switch>
-            <Route path='/characters'>
-              <Card />
-            </Route>
-            <Route path='/quotes'>
-              <Quotes />
-            </Route>
-            <Route path='/'>
-              <Login />
-            </Route>
+            <Route path='/characters'  component={Card} />
+            <Route path='/quotes'  component={Quotes} />
+            <Route path='/' exact component={Login} />
           </Switch>
-          {/* <Switch path='/characters' exact>
-            {/* <Card /> */}
-          {/* </Switch> */}
-          {/* {resourceType === 'login'? <Login/>: null}
-        {resourceType === 'characters?name' ? <Card items={items} /> : null}
-        {resourceType === 'quote/random?author' ? (
-          <Quote quotes={quotes} cast={items} key={items.id} />
-        ) : null} */}
         </div>
-      </Router>
     </>
   );
 };
