@@ -14,7 +14,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
-import { BrowserRouter as Router, Link } from 'react-router-dom';
+import { BrowserRouter as Router, NavLink } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -190,10 +190,10 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
             >
               <MenuIcon />
             </IconButton>
-            {/* <Typography className={classes.title} variant='h6' noWrap>
+            <Typography className={classes.title} variant='h6' noWrap>
               Search a Character
-            </Typography> */}
-            {/* <div className={classes.search}>
+            </Typography>
+            <div className={classes.search}>
               <div className={classes.searchIcon}>
                 <SearchIcon />
               </div>
@@ -209,17 +209,17 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
                 value={text}
                 inputProps={{ 'aria-label': 'search' }}
               />
-            </div> */}
+            </div>
             <div>
-              <Link className={classes.navLinks}  to='/login'>
+              <NavLink className={classes.navLinks} to='/login'>
                 Login
-              </Link>
-              <Link className={classes.navLinks} to='/characters'>
+              </NavLink>
+              <NavLink className={classes.navLinks} to='/characters'>
                 Characters
-              </Link>
-              <Link className={classes.navLinks} to='/quotes'>
+              </NavLink>
+              <NavLink className={classes.navLinks} to='/quotes'>
                 Quotes
-              </Link>
+              </NavLink>
             </div>
             <div className={classes.grow} />
             <div className={classes.sectionDesktop}>
