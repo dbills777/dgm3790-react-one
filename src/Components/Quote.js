@@ -9,14 +9,13 @@ export default function Quote() {
     maxWidth: '75%',
   };
   useEffect(() => {
-    const fetchItems = async () => {
+   (async () => {
       const result = await axios(
         `https://www.breakingbadapi.com/api/quote/random?author`
       );
       setQuotes(result.data);
       console.log(result.data);
-    };
-    fetchItems();
+    })();
   },[] );
   return quotes.map((item) => {
     // const author = item.author;
