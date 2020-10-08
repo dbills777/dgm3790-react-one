@@ -14,7 +14,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
-import { BrowserRouter as Router, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -178,7 +178,6 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
     console.log(search);
   };
   return (
-    <Router>
       <div className={classes.grow}>
         <AppBar position='static' className={classes.appBar}>
           <Toolbar>
@@ -211,7 +210,7 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
               />
             </div>
             <div>
-              <NavLink className={classes.navLinks} to='/login'>
+              <NavLink className={classes.navLinks} to='/'>
                 Login
               </NavLink>
               <NavLink className={classes.navLinks} to='/characters'>
@@ -263,6 +262,5 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
         {renderMobileMenu}
         {renderMenu}
       </div>
-    </Router>
   );
 }

@@ -7,6 +7,23 @@ import Login from './Components/Login';
 import { Switch, Route } from 'react-router-dom';
 
 const App = () => {
+  return (
+    <>
+      <MenuAppBar />
+      <div className='image'></div>
+
+      <div className='container'>
+        <Switch>
+          <Route path='/quotes' component={Quotes} />
+          <Route path='/characters' component={Card} />
+          <Route path='/' exact component={Login} />
+        </Switch>
+      </div>
+    </>
+  );
+};
+
+export default App;
   // const [resourceType, setResourceType] = useState('login');
   // const [items, setItems] = useState([]);
   // const [quotes, setQuotes] = useState([]);
@@ -30,21 +47,3 @@ const App = () => {
   //   };
   //   fetchItems();
   // }, [query, resourceType]);
-
-  return (
-    <>
-      <MenuAppBar />
-      <div className='image'></div>
-
-      <div className='container'>
-        <Switch>
-          <Route path='/login' component={Login} />
-          <Route path='/quotes' component={Quotes} />
-          <Route path='/characters' component={Card} />
-        </Switch>
-      </div>
-    </>
-  );
-};
-
-export default App;
