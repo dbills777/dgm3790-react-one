@@ -19,7 +19,6 @@ export default function Quote() {
       console.log(result.data);
     };
     fetchItems();
-    SetQuotechange(quotes);
   }, [quotechange]);
   const getNewQuote = () => {
     SetQuotechange(quotes);
