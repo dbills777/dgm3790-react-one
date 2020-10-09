@@ -8,7 +8,9 @@ export default function Quote() {
   const style = {
     color: 'white',
     fontSize: '1.5rem',
-    maxWidth: '75%',
+    minWidth: '75%',
+    maxWidth: '75%'
+    
   };
   useEffect(() => {
     const fetchItems = async () => {
@@ -32,6 +34,7 @@ export default function Quote() {
     // const photo = image.map((person) => person.img);
     return (
       <div key={item.quote_id} style={style}>
+        <button className= "btn" onClick={getNewQuote}>New quote</button>
         <em className='italics'>
           <h1>
             <strong></strong> "{item.quote}"
@@ -43,7 +46,6 @@ export default function Quote() {
           ) : null} */}
           <strong></strong> -{item.author}, {item.series}
         </p>
-        <button onClick={getNewQuote}>New quote</button>
       </div>
     );
   });
