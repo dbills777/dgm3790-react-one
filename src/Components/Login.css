@@ -1,0 +1,54 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    align-items: center;
+}
+
+.signup-form {
+  width: 30rem;
+  margin: 2rem auto;
+  max-width: 80%;
+  border: 2px solid white;
+  padding: 2rem;
+}
+
+.form-control label,
+.form-control input {
+  display: block;
+  width: 100%;
+  color: rgb(141, 141, 141);
+
+}
+
+.form-control input {
+  font: inherit;
+  padding: 0.1rem 0.25rem;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  margin-bottom: 1rem;
+}
+.form-control required {
+  color: red
+}
+
+.form-control input:focus {
+  outline: none;
+  border-bottom-color: #ff2058;
+}
+
+
+.btn {
+  margin: 5px;
+  color: #fff !important;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #018619;
+  padding: 20px;
+  border-radius: 5px;
+  display: inline-block;
+  cursor: pointer;
+  border: none;
+  transition: all 0.4s ease 0s;
+  outline: none;
+}
