@@ -15,14 +15,15 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import './Card.css'
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 200,
     height: '100%',
-    backgroundColor: 'gray',
     margin: '10px',
     borderRight: '3px solid #018619',
     borderBottom: '3px solid #018619',
+    backgroundColor: 'gray',
   },
   media: {
     width: '100%',
@@ -52,6 +53,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '50%',
     backgroundColor: 'light-gray',
   },
+ 
 }));
 
 export default function ListCard() {
@@ -82,7 +84,8 @@ export default function ListCard() {
 
   return items.map((item, items) => {
     return (
-      <Card key={item.char_id} className={classes.root}>
+      
+      <Card  key={item.char_id} className={classes.root}>
         <CardHeader
           avatar={
             <Avatar aria-label='recipe' className={classes.avatar}>

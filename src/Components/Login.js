@@ -18,7 +18,7 @@ const IngredientForm = React.memo((props) => {
     <div className='container'>
       <p>Mailing List Form</p>
       <section className='signup-form'>
-        <form onSubmit={submitHandler}>
+        <form onSubmit={submitHandler} autoComplete='off'>
           <div className='form-control'>
             <label htmlFor='title'>Firts Name</label>
             <input
