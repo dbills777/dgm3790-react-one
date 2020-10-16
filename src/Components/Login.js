@@ -3,25 +3,23 @@ import { useLoginContext } from '../contexts/LoginContext';
 
 import './Login.css';
 
-const LoginForm = ((props) => {
+const LoginForm = (props) => {
   const [first_name, setFirstName] = useState('');
   const [last_name, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [member, setMember] = useState('');
-  const authContext = useLoginContext()
-  console.log(authContext)
-  // const loginHandler = ()=>{
-  //   authContext.login()
-  // }
+  const authContext = useLoginContext();
+  console.log(authContext);
+  
   const submitHandler = (event) => {
     event.preventDefault();
     setMember({ first_name: first_name, last_name: last_name, email: email });
-    authContext.login()
+    authContext.login();
+    authContext.setName(first_name)
   };
-  
+
   console.log(member, first_name);
-  return (
-    !authContext.isAuth?
+  return !authContext.isAuth ? (
     <div className='container'>
       <p>Mailing List Form</p>
       <section className='signup-form'>
@@ -62,13 +60,15 @@ const LoginForm = ((props) => {
           </div>
           <div className='signup-button'>
             <button className='btn' type='submit'>
-              Join
+              Login
             </button>
           </div>
         </form>
       </section>
-    </div> : <h1>Hello {first_name}! Your are logged in</h1>
+    </div>
+  ) : (
+    <h1>Hello {authContext.name}! You are logged in</h1>
   );
-});
+};
 
 export default LoginForm;
