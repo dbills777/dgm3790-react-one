@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
+import Button from '@material-ui/core/Button'
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
@@ -178,89 +179,86 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
     console.log(search);
   };
   return (
-      <div className={classes.grow}>
-        <AppBar position='static' className={classes.appBar}>
-          <Toolbar>
-            <IconButton
-              edge='start'
-              className={classes.menuButton}
-              color='inherit'
-              aria-label='open drawer'
-            >
-              <MenuIcon />
+    <div className={classes.grow}>
+      <AppBar position='static' className={classes.appBar}>
+        <Toolbar>
+          <IconButton
+            edge='start'
+            className={classes.menuButton}
+            color='inherit'
+            aria-label='open drawer'
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography className={classes.title} variant='h6' noWrap>
+            Search a Character
+          </Typography>
+          <div className={classes.search}>
+            <div className={classes.searchIcon}>
+              <SearchIcon />
+            </div>
+            <InputBase
+              placeholder={text}
+              classes={{
+                root: classes.inputRoot,
+                input: classes.inputInput,
+              }}
+              type='text'
+              autoFocus
+              onChange={(event) => onChange(event.target.value)}
+              value={text}
+              inputProps={{ 'aria-label': 'search' }}
+            />
+          </div>
+          <div>
+            <NavLink className={classes.navLinks} to='/characters'>
+              Characters
+            </NavLink>
+            <NavLink className={classes.navLinks} to='/quotes'>
+              Quotes
+            </NavLink>
+          </div>
+          <div className={classes.grow} />
+          <div className={classes.sectionDesktop}>
+            <IconButton aria-label='show 4 new mails' color='inherit'>
+              <Badge badgeContent={'Br'} color='secondary'>
+                <MailIcon />
+              </Badge>
             </IconButton>
-            <Typography className={classes.title} variant='h6' noWrap>
-              Search a Character
-            </Typography>
-            <div className={classes.search}>
-              <div className={classes.searchIcon}>
-                <SearchIcon />
-              </div>
-              <InputBase
-                placeholder={text}
-                classes={{
-                  root: classes.inputRoot,
-                  input: classes.inputInput,
-                }}
-                type='text'
-                autoFocus
-                onChange={(event) => onChange(event.target.value)}
-                value={text}
-                inputProps={{ 'aria-label': 'search' }}
-              />
-            </div>
-            <div>
-              <NavLink className={classes.navLinks} to='/'>
-                Login
-              </NavLink>
-              <NavLink className={classes.navLinks} to='/characters'>
-                Characters
-              </NavLink>
-              <NavLink className={classes.navLinks} to='/quotes'>
-                Quotes
-              </NavLink>
-            </div>
-            <div className={classes.grow} />
-            <div className={classes.sectionDesktop}>
-              <IconButton aria-label='show 4 new mails' color='inherit'>
-                <Badge badgeContent={'Br'} color='secondary'>
-                  <MailIcon />
-                </Badge>
-              </IconButton>
-              <IconButton
-                aria-label='show 17 new notifications'
-                color='inherit'
-              >
-                <Badge badgeContent={'Ba'} color='primary'>
-                  <NotificationsIcon />
-                </Badge>
-              </IconButton>
-              <IconButton
-                edge='end'
-                aria-label='account of current user'
-                aria-controls={menuId}
-                aria-haspopup='true'
-                onClick={handleProfileMenuOpen}
-                color='inherit'
-              >
-                <AccountCircle />
-              </IconButton>
-            </div>
-            <div className={classes.sectionMobile}>
-              <IconButton
-                aria-label='show more'
-                aria-controls={mobileMenuId}
-                aria-haspopup='true'
-                onClick={handleMobileMenuOpen}
-                color='inherit'
-              >
-                <MoreIcon />
-              </IconButton>
-            </div>
-          </Toolbar>
-        </AppBar>
-        {renderMobileMenu}
-        {renderMenu}
-      </div>
+            <IconButton aria-label='show 17 new notifications' color='inherit'>
+              <Badge badgeContent={'Ba'} color='primary'>
+                <NotificationsIcon />
+              </Badge>
+            </IconButton>
+            <IconButton
+              edge='end'
+              aria-label='account of current user'
+              aria-controls={menuId}
+              aria-haspopup='true'
+              onClick={handleProfileMenuOpen}
+              color='inherit'
+            >
+              <AccountCircle />
+            </IconButton>
+          </div>
+          <div className={classes.sectionMobile}>
+            <IconButton
+              aria-label='show more'
+              aria-controls={mobileMenuId}
+              aria-haspopup='true'
+              onClick={handleMobileMenuOpen}
+              color='inherit'
+            >
+              <MoreIcon />
+            </IconButton>
+          </div>
+          <NavLink className={classes.navLinks} to='/'>
+            <Button> Login </Button>
+          </NavLink>
+        </Toolbar>
+      </AppBar>
+      {renderMobileMenu}
+      {renderMenu}
+    </div>
   );
 }

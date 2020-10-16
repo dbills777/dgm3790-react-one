@@ -1,20 +1,27 @@
 import React, { useState } from 'react';
+import { useLoginContext } from '../contexts/LoginContext';
 
 import './Login.css';
 
-const IngredientForm = React.memo((props) => {
+const LoginForm = ((props) => {
   const [first_name, setFirstName] = useState('');
   const [last_name, setLastName] = useState('');
-  const [email, setEmail]= useState('')
-  const [member, setMember] = useState('')
-
+  const [email, setEmail] = useState('');
+  const [member, setMember] = useState('');
+  const authContext = useLoginContext()
+  console.log(authContext)
+  // const loginHandler = ()=>{
+  //   authContext.login()
+  // }
   const submitHandler = (event) => {
     event.preventDefault();
     setMember({ first_name: first_name, last_name: last_name, email: email });
-    console.log('submitted')
+    authContext.login()
   };
-  console.log(member)
+  
+  console.log(member, first_name);
   return (
+    !authContext.isAuth?
     <div className='container'>
       <p>Mailing List Form</p>
       <section className='signup-form'>
@@ -60,8 +67,8 @@ const IngredientForm = React.memo((props) => {
           </div>
         </form>
       </section>
-    </div>
+    </div> : <h1>Hello {first_name}! Your are logged in</h1>
   );
 });
 
-export default IngredientForm;
+export default LoginForm;

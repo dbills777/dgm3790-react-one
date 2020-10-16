@@ -6,9 +6,11 @@ import Quotes from './Components/Quote';
 import Login from './Components/Login';
 import { Switch, Route } from 'react-router-dom';
 import { CharacterContextProvider } from './contexts/CharacterContext';
+import { LoginContextProvider } from './contexts/LoginContext';
 
 const App = () => {
   return (
+    <LoginContextProvider>
     <CharacterContextProvider>
       <>
         <MenuAppBar />
@@ -23,6 +25,7 @@ const App = () => {
         </div>
       </>
     </CharacterContextProvider>
+    </LoginContextProvider>
   );
 };
 
