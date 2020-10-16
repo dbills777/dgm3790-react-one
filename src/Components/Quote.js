@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useCharacterContext } from '../contexts/CharacterContext';
+
 
 export default function Quote() {
   const [quotes, setQuotes] = useState([]);
@@ -25,13 +27,15 @@ export default function Quote() {
   const getNewQuote = () => {
     SetQuotechange(quotes);
   };
+  const items = useCharacterContext()
+  
   return quotes.map((item) => {
-    // const author = item.author;
+    const author = item.author;
 
-    // const image = cast.filter((person) => {
-    //   return person.name === author || person.nickname === author;
-    // });
-    // const photo = image.map((person) => person.img);
+    const image = items.characters.filter((person) => {
+      return person.name === author || person.nickname === author;
+    });
+    const photo = image.map((person) => person.img);
     return (
       <div key={item.quote_id} style={style}>
         <button className= "btn" onClick={getNewQuote}>New quote</button>
@@ -41,9 +45,9 @@ export default function Quote() {
           </h1>
         </em>
         <p className='flex'>
-          {/* {image.length ? (
+          {image.length ? (
             <img alt={photo.id} className='img' src={photo}></img>
-          ) : null} */}
+          ) : null}
           <strong></strong> -{item.author}, {item.series}
         </p>
       </div>

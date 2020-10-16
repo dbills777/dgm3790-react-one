@@ -26,7 +26,8 @@ export const CharacterContextProvider = (props) => {
       }
     };
     getCharacters();
-  }, [url]);
+  }, []);
+  
 
   return (
     <CharacterContext.Provider value={{ characters }}>
