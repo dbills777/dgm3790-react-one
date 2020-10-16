@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
@@ -16,6 +15,7 @@ import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import './Card.css'
+import { useCharacterContext } from '../contexts/CharacterContext';
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 200,
@@ -57,22 +57,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function ListCard() {
-  // const [query, setQuery] = useState('');
-  const [items, setItems] = useState([]);
-  const url = 'https://www.breakingbadapi.com/api/characters';
- 
-  useEffect(() => {
-     const getCharacters = async () => {
-       try {
-         const response = await axios.get(url);
-         console.log(response.data);
-         setItems(response.data);
-       } catch (error) {
-         console.log(error);
-       }
-     };
-    getCharacters();
-  }, [url]);
+  
+  const items = useCharacterContext()
  
 
   const classes = useStyles();
@@ -82,7 +68,7 @@ export default function ListCard() {
     setExpanded(!expanded);
   };
 
-  return items.map((item, items) => {
+  return items.characters.map((item, items) => {
     return (
       
       <Card  key={item.char_id} className={classes.root}>
