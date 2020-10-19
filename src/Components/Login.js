@@ -62,7 +62,7 @@ const LoginForm = (props) => {
           </div>
           <div className='signup-button'>
             <button className='btn' type='submit'>
-              Login
+              Sign Up
             </button>
           </div>
         </form>
