@@ -1,18 +1,26 @@
-/* .container{
+.container{
     display: flex;
-    flex-direction: column;
     color: white;
     align-items: center;
-} */
+    
+}
 .mail{
   color: white;
   text-align: center;
 }
+img{
+  
+  width: 400px;
+}
+input::placeholder{
+  color: #5e5e5e;
+  font-size: .5rem;
+}
 .signup-form {
-  width: 30rem;
+  width: 20rem;
   margin: 2rem auto;
   max-width: 80%;
-  border: 1px solid rgb(75, 75, 75);
+  /* border: 1px solid rgb(75, 75, 75); */
   padding: 2rem;
 }
 
