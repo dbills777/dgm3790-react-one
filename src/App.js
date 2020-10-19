@@ -7,6 +7,7 @@ import Login from './Components/Login';
 import { Switch, Route } from 'react-router-dom';
 import { CharacterContextProvider } from './contexts/CharacterContext';
 import { LoginContextProvider } from './contexts/LoginContext';
+// import SignUp from './Components/Form';
 
 const App = () => {
   return (

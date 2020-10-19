@@ -9,7 +9,6 @@ const LoginForm = (props) => {
   const [email, setEmail] = useState('');
   const [member, setMember] = useState('');
   const authContext = useLoginContext();
-  console.log(authContext);
   
   const submitHandler = (event) => {
     event.preventDefault();
@@ -30,6 +29,8 @@ const LoginForm = (props) => {
               type='text'
               id='firstName'
               value={first_name}
+              required
+              placeholder='Required'
               onChange={(event) => {
                 setFirstName(event.target.value);
               }}
@@ -42,6 +43,7 @@ const LoginForm = (props) => {
               id='lastName'
               value={last_name}
               required
+              placeholder='Required'
               onChange={(event) => {
                 setLastName(event.target.value);
               }}
