@@ -20,8 +20,8 @@ const LoginForm = (props) => {
   console.log(member, first_name);
   return !authContext.isAuth ? (
     <div className='container'>
-      <p>Mailing List Form</p>
       <section className='signup-form'>
+      <p className= "mail">Sign Up For Our Mailing List</p>
         <form onSubmit={submitHandler} autoComplete='off'>
           <div className='form-control'>
             <label htmlFor='title'>Firts Name</label>
@@ -69,7 +69,7 @@ const LoginForm = (props) => {
       </section>
     </div>
   ) : (
-    <h1>Hello {authContext.name}! You are logged in</h1>
+    <h1>Hello {authContext.name}! Thank You, You Are Signed up for our Mailing List</h1>
   );
 };
 

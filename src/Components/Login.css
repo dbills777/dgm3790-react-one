@@ -4,7 +4,10 @@
     color: white;
     align-items: center;
 } */
-
+.mail{
+  color: white;
+  text-align: center;
+}
 .signup-form {
   width: 30rem;
   margin: 2rem auto;
