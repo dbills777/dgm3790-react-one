@@ -29,7 +29,7 @@ const LoginForm = (props) => {
         <p className='mail'>Sign Up For Our Mailing List</p>
         <form onSubmit={submitHandler} autoComplete='off'>
           <div className='form-control'>
-            <label htmlFor='title'>Firts Name</label>
+            <label htmlFor='firstname'>Firts Name</label>
             <input
               type='text'
               id='firstName'
@@ -42,7 +42,7 @@ const LoginForm = (props) => {
             />
           </div>
           <div className='form-control'>
-            <label htmlFor='title'>Lastname</label>
+            <label htmlFor='lastname'>Lastname</label>
             <input
               type='text'
               id='lastName'
@@ -55,7 +55,7 @@ const LoginForm = (props) => {
             />
           </div>
           <div className='form-control'>
-            <label htmlFor='amount'>Email</label>
+            <label htmlFor='email'>Email</label>
             <input
               type='email'
               id='email'
