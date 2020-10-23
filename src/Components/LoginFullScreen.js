@@ -129,7 +129,7 @@ export default function SignInSide(props) {
     </Grid>
   ) : (
     <h1>
-      Hello {first_name} {last_name}! Thank You, You Are Signed up for our
+      Hello {authContext.name}! Thank You, You Are Signed up for our
       Mailing List
     </h1>
   );
