@@ -9,10 +9,12 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import './Login.css';
+import { Formik } from 'formik';
+import * as Yup from 'yup';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: '25vh',
+    height: '200px',
   },
   image: {
     backgroundImage:
@@ -28,19 +30,24 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     alignItems: 'center',
   },
-  text:{
-    color: "#333"
+  text: {
+    color: '#333',
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: '#018619',
   },
   form: {
-    width: '100%', // Fix IE 11 issue.
+    width: '100%',
     marginTop: theme.spacing(1),
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
+    backgroundColor: '#018619',
+    color: 'white',
+  },
+  icon: {
+    color: 'white',
   },
 }));
 
@@ -53,14 +60,14 @@ export default function SignInSide(props) {
   const [member, setMember] = useState('');
   const authContext = useLoginContext();
 
-  const submitHandler = (event) => {
-    event.preventDefault();
-    setMember({ first_name: first_name, last_name: last_name, email: email });
+  const submitHandler = (values) => {
+    setMember({ first_name: values.firstName, last_name: values.lastName, email: values.email });
     authContext.login();
-    authContext.setName(first_name);
+    authContext.setName(values.firstName);
+    authContext.setEmail(values.email)
   };
 
-  console.log(member, first_name);
+  console.log(member, first_name, email, last_name);
 
   return !authContext.isAuth ? (
     <Grid container component='main' className={classes.root}>
@@ -68,72 +75,134 @@ export default function SignInSide(props) {
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
         <div className={classes.paper}>
           <Avatar className={classes.avatar}>
-            <LockOutlinedIcon />
+            <LockOutlinedIcon className={classes.icon} />
           </Avatar>
           <Typography component='h1' variant='h5' className={classes.text}>
             Sign Up
           </Typography>
-          <form className={classes.form} noValidate onSubmit={submitHandler}>
-            <TextField
-              variant='outlined'
-              margin='normal'
-              required
-              fullWidth
-              id='firstName'
-              label='First Name'
-              name='firstName'
-              autoFocus
-              value={first_name}
-              onChange={(event) => {
-                setFirstName(event.target.value);
-              }}
-            />
-            <TextField
-              variant='filled'
-              margin='normal'
-              required
-              fullWidth
-              id='lastName'
-              label='Last Name'
-              name='firstName'
-              autoFocus
-              value={last_name}
-              onChange={(event) => {
-                setLastName(event.target.value);
-              }}
-            />
-            <TextField
-              variant='outlined'
-              margin='normal'
-              required
-              fullWidth
-              id='email'
-              label='Email Address'
-              name='email'
-              autoComplete='email'
-              autoFocus
-              value={email}
-              onChange={(event) => {
-                setEmail(event.target.value);
-              }}
-            />
+          <Formik
+            initialValues={{
+              email: '',
+              firstName: '',
+              lastName: '',
+              submit: null,
+            }}
+            validationSchema={Yup.object().shape({
+              email: Yup.string()
+                .email('Must be a Valid Email address')
+                .max(30)
+                .required('Email is Required'),
+              firstName: Yup.string()
+                .min(3, 'First Name Must be 3 characters or more')
+                .max(40, 'Name is too long')
+                .required('First Name is Required'),
+              lastName: Yup.string()
+                .min(3, 'Last Name Must be 3 characters or more')
+                .max(40, 'Name is too long')
+                .required('Last Name is Required'),
+            })}
+            onSubmit={(values, { setErrors, setStatus, setSubmitting }) => {
+              try {
+                console.log(values.email, values.firstName, values.lastName);
+                setFirstName(values.firstName);
+                setLastName(values.lastName);
+                setEmail(values.email);
+                submitHandler(values);
+                authContext.login();
+              } catch (err) {
+                console.error(err);
+              }
+            }}
+          >
+            {({
+              values,
+              errors,
+              touched,
+              handleChange,
+              handleBlur,
+              handleSubmit,
+              isSubmitting,
+            }) => (
+              <form
+                className={classes.form}
+                noValidate
+                autoComplete='off'
+                onSubmit={handleSubmit}
+              >
+                <TextField
+                  variant='outlined'
+                  margin='normal'
+                  required
+                  fullWidth
+                  id='firstName'
+                  label='First Name'
+                  name='firstName'
+                  autoFocus
+                  value={values.firstName}
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  error={Boolean(touched.firstName && errors.firstName)}
+                  helperText={touched.firstName && errors.firstName}
+                  // onChange={(event) => {
+                  //   setFirstName(event.target.value);
+                  // }}
+                />
+                <TextField
+                  variant='outlined'
+                  margin='normal'
+                  required
+                  fullWidth
+                  id='lastName'
+                  label='Last Name'
+                  name='lastName'
+                  value={values.lastName}
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  error={Boolean(touched.lastName && errors.lastName)}
+                  helperText={touched.lastName && errors.lastName}
+                  // onChange={(event) => {
+                  //   setLastName(event.target.value);
+                  // }}
+                />
+                <TextField
+                  variant='outlined'
+                  margin='normal'
+                  type='email'
+                  name='email'
+                  id='email'
+                  autoComplete='email'
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.email}
+                  error={Boolean(touched.email && errors.email)}
+                  helperText={touched.email && errors.email}
+                  required
+                  fullWidth
+                  label='Email Address'
+                  // value={email}
+                  // onChange={(event) => {
+                  //   setEmail(event.target.value);
+                  // }}
+                />
 
-            <Button
-              type='submit'
-              fullWidth
-              variant='contained'
-              className={classes.submit}
-            >
-              Sign Up
-            </Button>
-          </form>
+                <Button
+                  type='submit'
+                  fullWidth
+                  variant='contained'
+                  className={classes.submit}
+                >
+                  Sign Up
+                </Button>
+              </form>
+            )}
+          </Formik>
         </div>
       </Grid>
     </Grid>
   ) : (
     <h1>
-      Hello {authContext.name}! Thank You, You Are Signed up for our
-      Mailing List
+      Hello {authContext.name}! Thank You, We will send your Emails to {authContext.email}.
+      
     </h1>
   );
 }

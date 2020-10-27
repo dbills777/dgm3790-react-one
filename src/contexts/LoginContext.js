@@ -2,14 +2,17 @@ import React, { useContext, createContext, useState } from 'react';
 
 const LoginContext = createContext({
   isAuth: false,
+  email: '',
   name: '',
   login: ()=>{},
-  setName: ()=>{}
+  setName: ()=>{},
+  setEmail: ()=>{}
 });
 
 export const LoginContextProvider = (props) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
     const loginHandler = () => {
         setIsAuthenticated(!isAuthenticated)
         
@@ -17,10 +20,13 @@ export const LoginContextProvider = (props) => {
     const nameHandler = (personName) =>{
       setName(personName)
     }
+    const emailHandler = (email) => {
+      setEmail(email);
+    };
   
 
   return (
-    <LoginContext.Provider value={{ login: loginHandler, setName: nameHandler, name: name, isAuth: isAuthenticated}}>
+    <LoginContext.Provider value={{ login: loginHandler, setName: nameHandler, name: name, isAuth: isAuthenticated, email: email, setEmail: emailHandler }}>
       {props.children}
     </LoginContext.Provider>
   );
