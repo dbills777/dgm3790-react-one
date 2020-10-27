@@ -25,7 +25,7 @@
 
 - uses of useEffect code is the
   - [CharacterContext.js](/src/contexts/CharacterContext.js)
-  - [Quote.js](/src/Components/Quotes.js)
+  - [Quote.js](/src/Components/Quote.js)
 - The submission of the form must be stored in local state using the useContext hook.
   - [LoginContext.js](/src/contexts/LoginContext.js)
 
@@ -42,7 +42,7 @@ const LoginContext = createContext({
 - All component state must be handled using the useState hook
   - several examples
   - [LoginContext.js](/src/contexts/LoginContext.js)
-  - [Quote.js](/src/Components/Quotes.js)
+  - [Quote.js](/src/Components/Quote.js)
   - [CharacterContext.js](/src/contexts/CharacterContext.js)
   
 ```javascript
@@ -60,8 +60,8 @@ const [isAuthenticated, setIsAuthenticated] = useState(false);
       setEmail(email);
 ```
 - Your app should have component side effects that are handled using the useEffect hook
-  - [Quote.js](/src/Components/Quotes.js)
-- 
+  - [Quote.js](/src/Components/Quote.js)
+  
 ```javascript
 useEffect(() => {
     const fetchItems = async () => {
