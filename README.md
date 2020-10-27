@@ -85,3 +85,7 @@ useEffect(() => {
       return person.name === author || person.nickname === author;
     });
 ```
+- Displays Data captured from input to the screen after form submit
+```javascript
+Hello {authContext.name}! Thank You, We will send your Emails to {authContext.email}.
+```
