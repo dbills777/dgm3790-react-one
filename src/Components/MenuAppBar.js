@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
+import { useLoginContext } from '../contexts/LoginContext';
+
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button'
 import IconButton from '@material-ui/core/IconButton';
@@ -95,6 +97,8 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+  const authContext = useLoginContext();
+
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -220,7 +224,7 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
           </div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <IconButton aria-label='show 4 new mails' color='inherit'>
+            {/* <IconButton aria-label='show 4 new mails' color='inherit'>
               <Badge badgeContent={'Br'} color='secondary'>
                 <MailIcon />
               </Badge>
@@ -229,7 +233,7 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
               <Badge badgeContent={'Ba'} color='primary'>
                 <NotificationsIcon />
               </Badge>
-            </IconButton>
+            </IconButton> */}
             <IconButton
               edge='end'
               aria-label='account of current user'
@@ -253,7 +257,13 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
             </IconButton>
           </div>
           <NavLink className={classes.navLinks} to='/'>
-            <Button> Sign UP </Button>
+            {!authContext.isAuth ? (
+              <Button> Sign UP </Button>
+            ) : (
+              <Badge badgeContent={'Thanks'} color='secondary'>
+                <MailIcon />
+              </Badge>
+            )}
           </NavLink>
         </Toolbar>
       </AppBar>
