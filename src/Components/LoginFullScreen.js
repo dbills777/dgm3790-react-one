@@ -15,6 +15,8 @@ import * as Yup from 'yup';
 const useStyles = makeStyles((theme) => ({
   root: {
     height: '200px',
+    maxWidth: '75vw',
+    padding: '5rem'
   },
   image: {
     backgroundImage:
@@ -25,10 +27,11 @@ const useStyles = makeStyles((theme) => ({
     backgroundPosition: 'center',
   },
   paper: {
-    margin: theme.spacing(8, 4),
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    // backgroundColor: '#999',
+    padding: '2rem'
   },
   text: {
     color: '#333',
@@ -130,6 +133,7 @@ export default function SignInSide(props) {
                 onSubmit={handleSubmit}
               >
                 <TextField
+                  className={classes.input}
                   variant='outlined'
                   margin='normal'
                   required
@@ -143,9 +147,7 @@ export default function SignInSide(props) {
                   onChange={handleChange}
                   error={Boolean(touched.firstName && errors.firstName)}
                   helperText={touched.firstName && errors.firstName}
-                  // onChange={(event) => {
-                  //   setFirstName(event.target.value);
-                  // }}
+                 
                 />
                 <TextField
                   variant='outlined'
@@ -160,9 +162,7 @@ export default function SignInSide(props) {
                   onChange={handleChange}
                   error={Boolean(touched.lastName && errors.lastName)}
                   helperText={touched.lastName && errors.lastName}
-                  // onChange={(event) => {
-                  //   setLastName(event.target.value);
-                  // }}
+                  
                 />
                 <TextField
                   variant='outlined'
@@ -179,10 +179,7 @@ export default function SignInSide(props) {
                   required
                   fullWidth
                   label='Email Address'
-                  // value={email}
-                  // onChange={(event) => {
-                  //   setEmail(event.target.value);
-                  // }}
+                  
                 />
 
                 <Button
