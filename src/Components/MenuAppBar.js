@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+// import React, { useState } from 'react';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import { useLoginContext } from '../contexts/LoginContext';
@@ -6,13 +7,13 @@ import { useLoginContext } from '../contexts/LoginContext';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button'
 import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
-import InputBase from '@material-ui/core/InputBase';
+// import Typography from '@material-ui/core/Typography';
+// import InputBase from '@material-ui/core/InputBase';
 import Badge from '@material-ui/core/Badge';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import MenuIcon from '@material-ui/icons/Menu';
-import SearchIcon from '@material-ui/icons/Search';
+// import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
@@ -176,12 +177,12 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
       </MenuItem>
     </Menu>
   );
-  const [text, setText] = useState('');
-  const onChange = (search) => {
-    setText(search);
-    getQuery(search);
-    console.log(search);
-  };
+  // const [text, setText] = useState('');
+  // const onChange = (search) => {
+  //   setText(search);
+  //   getQuery(search);
+  //   console.log(search);
+  // };
   return (
     <div className={classes.grow}>
       <AppBar position='static' className={classes.appBar}>
