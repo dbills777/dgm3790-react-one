@@ -184,6 +184,7 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
   //   console.log(search);
   // };
   return (
+    
     <div className={classes.grow}>
       <AppBar position='static' className={classes.appBar}>
         <Toolbar>
