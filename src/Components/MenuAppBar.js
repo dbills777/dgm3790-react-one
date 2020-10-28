@@ -194,7 +194,7 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography className={classes.title} variant='h6' noWrap>
+          {/* <Typography className={classes.title} variant='h6' noWrap>
             Search a Character
           </Typography>
           <div className={classes.search}>
@@ -213,7 +213,7 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
               value={text}
               inputProps={{ 'aria-label': 'search' }}
             />
-          </div>
+          </div> */}
           <div>
             <NavLink className={classes.navLinks} to='/characters'>
               Characters
