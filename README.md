@@ -4,7 +4,7 @@
 
 ## Create a Signup or Login form that captures at least 3 bits of user information
 
-- The elements in the form must indicate if they are required or not
+- The elements in the form must indicate if they are required or not.
 
   - [LoginFullScreen.js](/src/Components/LoginFullScreen.js)
 
