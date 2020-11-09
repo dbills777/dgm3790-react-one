@@ -14,7 +14,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-import './Card.css'
+import './Card.css';
 import { useCharacterContext } from '../contexts/CharacterContext';
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -53,25 +53,29 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '50%',
     backgroundColor: 'light-gray',
   },
- 
 }));
 
 export default function ListCard() {
-  
-  const items = useCharacterContext()
- 
+  const items = useCharacterContext();
 
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
+  const handleExpandClick = (id) => {
+    const currentChar = items.characters.find((char)=>{
+      return char.char_id ===id
+    })
+    console.log(currentChar)
+    if (currentChar) {
+      setExpanded(!expanded);
+    }
+
+    console.log(id);
   };
 
   return items.characters.map((item, items) => {
     return (
-      
-      <Card  key={item.char_id} className={classes.root}>
+      <Card key={item.char_id} className={classes.root}>
         <CardHeader
           avatar={
             <Avatar aria-label='recipe' className={classes.avatar}>
@@ -108,7 +112,7 @@ export default function ListCard() {
             className={clsx(classes.expand, {
               [classes.expandOpen]: expanded,
             })}
-            onClick={() => handleExpandClick(items.char_id)}
+            onClick={() => handleExpandClick(item.char_id)}
             aria-expanded={expanded}
             aria-label='show more'
           >

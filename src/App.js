@@ -20,7 +20,7 @@ const App = () => {
           <Switch>
             <Route path='/quotes' component={Quotes} />
             <Route path='/characters' component={Card} />
-            <Route path='/' exact component={LoginFullScreen} />
+            <Route path='/'  component={LoginFullScreen} />
           </Switch>
         </div>
       </>

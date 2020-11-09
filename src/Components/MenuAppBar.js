@@ -5,7 +5,7 @@ import AppBar from '@material-ui/core/AppBar';
 import { useLoginContext } from '../contexts/LoginContext';
 
 import Toolbar from '@material-ui/core/Toolbar';
-import Button from '@material-ui/core/Button'
+import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 // import Typography from '@material-ui/core/Typography';
 // import InputBase from '@material-ui/core/InputBase';
@@ -92,6 +92,11 @@ const useStyles = makeStyles((theme) => ({
     color: '#fff',
     textDecoration: 'none',
   },
+  notActive: {
+    marginRight: '1rem',
+    color: '#999',
+    textDecoration: 'none',
+  },
 }));
 
 export default function PrimarySearchAppBar({ getQuery, props }) {
@@ -99,7 +104,6 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const authContext = useLoginContext();
-
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -111,6 +115,7 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
   const handleMobileMenuClose = () => {
     setMobileMoreAnchorEl(null);
   };
+  
 
   const handleMenuClose = () => {
     setAnchorEl(null);
@@ -120,6 +125,9 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
+  const alertMessage = ()=>{
+    alert('sign up to view Characters')
+  }
 
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
@@ -177,14 +185,8 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
       </MenuItem>
     </Menu>
   );
-  // const [text, setText] = useState('');
-  // const onChange = (search) => {
-  //   setText(search);
-  //   getQuery(search);
-  //   console.log(search);
-  // };
+
   return (
-    
     <div className={classes.grow}>
       <AppBar position='static' className={classes.appBar}>
         <Toolbar>
@@ -216,14 +218,34 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
               inputProps={{ 'aria-label': 'search' }}
             />
           </div> */}
-          <div>
-            <NavLink className={classes.navLinks} to='/characters'>
-              Characters
-            </NavLink>
-            <NavLink className={classes.navLinks} to='/quotes'>
-              Quotes
-            </NavLink>
-          </div>
+          {!authContext.isAuth ? (
+            <div>
+              <NavLink
+                className={classes.notActive}
+                to='#'
+                onClick={alertMessage}
+              >
+                Characters
+              </NavLink>
+              <NavLink
+                className={classes.notActive}
+                to='#'
+                onClick={alertMessage}
+              >
+                Quotes
+              </NavLink>
+            </div>
+          ) : (
+            <div>
+              <NavLink className={classes.navLinks} to='/characters'>
+                Characters
+              </NavLink>
+              <NavLink className={classes.navLinks} to='/quotes'>
+                Quotes
+              </NavLink>
+            </div>
+          )}
+
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
             {/* <IconButton aria-label='show 4 new mails' color='inherit'>
