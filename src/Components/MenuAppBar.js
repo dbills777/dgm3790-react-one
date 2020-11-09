@@ -96,6 +96,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: '1rem',
     color: '#999',
     textDecoration: 'none',
+    cursor: 'not-allowed'
   },
 }));
 
