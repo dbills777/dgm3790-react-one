@@ -70,7 +70,7 @@ export default function SignInSide(props) {
     authContext.setEmail(values.email)
   };
 
-  // console.log(member, first_name, email, last_name);
+  console.log(member, first_name, email, last_name);
 
   return !authContext.isAuth ? (
     <Grid container component='main' className={classes.root}>
