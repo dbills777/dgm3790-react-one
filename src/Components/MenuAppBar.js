@@ -127,7 +127,7 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
     setMobileMoreAnchorEl(event.currentTarget);
   };
   const alertMessage = ()=>{
-    alert('sign up to view Characters')
+    alert('sign up to view pages')
   }
 
   const menuId = 'primary-search-account-menu';

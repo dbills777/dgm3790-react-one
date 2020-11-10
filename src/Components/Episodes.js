@@ -8,12 +8,21 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { useEpisodeContext } from '../contexts/EpisodeContext';
+import { Typography } from '@material-ui/core';
 
 const useStyles = makeStyles({
   table: {
     minWidth: 650,
   },
-
+  header: {
+    fontSize: '3rem',
+    padding: '1.5rem',
+    color: '#999',
+    textAlign: 'Center'
+  },
+  characterWidth:{
+    maxWidth: "300px"
+  }
 });
 
 function createData(title, season, number, date, appears) {
@@ -26,7 +35,6 @@ export default function BasicTable() {
   const allEpisodes = episodeContext.episodes;
   //   console.log(allEpisodes);
   const titles = allEpisodes.map((episode) => {
-    console.log(episode.characters);
     return episode;
   });
 
@@ -35,14 +43,17 @@ export default function BasicTable() {
   console.log(rows);
   return (
     <TableContainer component={Paper}>
+      <Typography className={classes.header}>
+       Full Breaking Bad Episode List
+      </Typography>
       <Table className={classes.table} aria-label='simple table'>
         <TableHead>
           <TableRow>
             <TableCell>Title</TableCell>
-            <TableCell align='right'>Season</TableCell>
-            <TableCell align='right'>Episode Number</TableCell>
-            <TableCell align='right'>Air Date</TableCell>
-            <TableCell align='right'>Starring</TableCell>
+            <TableCell align='left'>Season</TableCell>
+            <TableCell align='left'>Episode Number</TableCell>
+            <TableCell align='left'>Air Date</TableCell>
+            <TableCell align='left'>Starring</TableCell>
           </TableRow>
         </TableHead>
         <TableBody className={classes.text}>
@@ -51,10 +62,12 @@ export default function BasicTable() {
               <TableCell component='th' scope='row'>
                 {row.title}
               </TableCell>
-              <TableCell align='right'>{row.season}</TableCell>
-              <TableCell align='right'>{row.episode}</TableCell>
-              <TableCell align='right'>{row.air_date}</TableCell>
-              <TableCell align='right'>{row.characters}</TableCell>
+              <TableCell align='left'>Season: {row.season}</TableCell>
+              <TableCell align='left'>Episode: #{row.episode}</TableCell>
+              <TableCell align='left'>{row.air_date}</TableCell>
+              <TableCell className={classes.characterWidth} align='left'>
+                {row.characters.join(', \n')}
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
