@@ -235,6 +235,13 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
               >
                 Quotes
               </NavLink>
+              <NavLink
+                className={classes.notActive}
+                to='#'
+                onClick={alertMessage}
+              >
+                Episode Table
+              </NavLink>
             </div>
           ) : (
             <div>
@@ -243,6 +250,9 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
               </NavLink>
               <NavLink className={classes.navLinks} to='/quotes'>
                 Quotes
+              </NavLink>
+              <NavLink className={classes.navLinks} to='/episodes'>
+                Episodes Table
               </NavLink>
             </div>
           )}
