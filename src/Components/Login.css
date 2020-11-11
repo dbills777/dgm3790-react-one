@@ -1,7 +1,6 @@
 .container {
   display: flex;
   color: white;
-  align-items: center;
 }
 .mail {
   color: white;
