@@ -1,9 +1,4 @@
-import React, {
-  useContext,
-  createContext,
-  useState,
-  useEffect,
-} from 'react';
+import React, { useContext, createContext, useState, useEffect } from 'react';
 import axios from 'axios';
 
 const CharacterContext = createContext({
@@ -27,7 +22,6 @@ export const CharacterContextProvider = (props) => {
     };
     getCharacters();
   }, []);
-  
 
   return (
     <CharacterContext.Provider value={{ characters }}>

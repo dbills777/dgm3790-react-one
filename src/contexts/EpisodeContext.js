@@ -14,7 +14,6 @@ export const EpisodeContextProvider = (props) => {
     const getCharacters = async () => {
       try {
         const response = await axios.get(url);
-        // console.log(response.data);
         setEpisodes(response.data);
       } catch (error) {
         console.log(error);

@@ -14,16 +14,13 @@ const useStyles = makeStyles((theme) => ({
   },
   gridList: {
     padding: 10,
-    width: "100%",
+    width: '100%',
     height: '25vh',
   },
 }));
 
-
-
- 
 export default function ImageGridList(props) {
-  const {items}=props
+  const { items } = props;
   const classes = useStyles();
 
   return (

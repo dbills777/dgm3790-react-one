@@ -62,10 +62,10 @@ export default function ListCard() {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = (id) => {
-    const currentChar = items.characters.find((char)=>{
-      return char.char_id ===id
-    })
-    console.log(currentChar)
+    const currentChar = items.characters.find((char) => {
+      return char.char_id === id;
+    });
+    console.log(currentChar);
     if (currentChar) {
       setExpanded(!expanded);
     }

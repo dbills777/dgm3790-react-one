@@ -1,20 +1,18 @@
-.container{
-    display: flex;
-    color: white;
-    align-items: center;
-    
+.container {
+  display: flex;
+  color: white;
+  align-items: center;
 }
-.mail{
+.mail {
   color: white;
   text-align: center;
 }
-img{
-  
+img {
   width: 400px;
 }
-input::placeholder{
+input::placeholder {
   color: #5e5e5e;
-  font-size: .5rem;
+  font-size: 0.5rem;
 }
 .signup-form {
   width: 20rem;
@@ -29,7 +27,6 @@ input::placeholder{
   display: block;
   width: 100%;
   color: rgb(141, 141, 141);
-
 }
 
 .form-control input {
@@ -40,14 +37,13 @@ input::placeholder{
   margin-bottom: 1rem;
 }
 .form-control required {
-  color: red
+  color: red;
 }
 
 .form-control input:focus {
   outline: none;
   border-bottom-color: #ff2058;
 }
-
 
 .btn {
   margin: 5px;
@@ -63,6 +59,6 @@ input::placeholder{
   transition: all 0.4s ease 0s;
   outline: none;
 }
-h1{
-  Color: white
+h1 {
+  color: white;
 }

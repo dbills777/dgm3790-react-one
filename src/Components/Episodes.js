@@ -18,11 +18,11 @@ const useStyles = makeStyles({
     fontSize: '3rem',
     padding: '1.5rem',
     color: '#999',
-    textAlign: 'Center'
+    textAlign: 'Center',
   },
-  characterWidth:{
-    maxWidth: "300px"
-  }
+  characterWidth: {
+    maxWidth: '300px',
+  },
 });
 
 function createData(title, season, number, date, appears) {
@@ -43,7 +43,7 @@ export default function BasicTable() {
   return (
     <TableContainer component={Paper}>
       <Typography className={classes.header}>
-       Full Breaking Bad Episode List
+        Full Breaking Bad Episode List
       </Typography>
       <Table className={classes.table} aria-label='simple table'>
         <TableHead>

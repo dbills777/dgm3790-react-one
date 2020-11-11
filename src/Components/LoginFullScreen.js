@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     height: '200px',
     maxWidth: '75vw',
-    padding: '5rem'
+    padding: '5rem',
   },
   image: {
     backgroundImage:
@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     alignItems: 'center',
     // backgroundColor: '#999',
-    padding: '2rem'
+    padding: '2rem',
   },
   text: {
     color: '#333',
@@ -64,10 +64,14 @@ export default function SignInSide(props) {
   const authContext = useLoginContext();
 
   const submitHandler = (values) => {
-    setMember({ first_name: values.firstName, last_name: values.lastName, email: values.email });
+    setMember({
+      first_name: values.firstName,
+      last_name: values.lastName,
+      email: values.email,
+    });
     authContext.login();
     authContext.setName(values.firstName);
-    authContext.setEmail(values.email)
+    authContext.setEmail(values.email);
   };
 
   console.log(member, first_name, email, last_name);
@@ -147,7 +151,6 @@ export default function SignInSide(props) {
                   onChange={handleChange}
                   error={Boolean(touched.firstName && errors.firstName)}
                   helperText={touched.firstName && errors.firstName}
-                 
                 />
                 <TextField
                   variant='outlined'
@@ -162,7 +165,6 @@ export default function SignInSide(props) {
                   onChange={handleChange}
                   error={Boolean(touched.lastName && errors.lastName)}
                   helperText={touched.lastName && errors.lastName}
-                  
                 />
                 <TextField
                   variant='outlined'
@@ -179,7 +181,6 @@ export default function SignInSide(props) {
                   required
                   fullWidth
                   label='Email Address'
-                  
                 />
 
                 <Button
@@ -198,8 +199,8 @@ export default function SignInSide(props) {
     </Grid>
   ) : (
     <h1>
-      Hello {authContext.name}! Thank You, We will send your Emails to {authContext.email}.
-      
+      Hello {authContext.name}! Thank You, We will send your Emails to{' '}
+      {authContext.email}.
     </h1>
   );
 }

@@ -96,7 +96,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: '1rem',
     color: '#999',
     textDecoration: 'none',
-    cursor: 'not-allowed'
+    cursor: 'not-allowed',
   },
 }));
 
@@ -116,7 +116,6 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
   const handleMobileMenuClose = () => {
     setMobileMoreAnchorEl(null);
   };
-  
 
   const handleMenuClose = () => {
     setAnchorEl(null);
@@ -126,9 +125,9 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
-  const alertMessage = ()=>{
-    alert('sign up to view pages')
-  }
+  const alertMessage = () => {
+    alert('sign up to view pages');
+  };
 
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
