@@ -33,7 +33,6 @@ export default function BasicTable() {
   const classes = useStyles();
   const episodeContext = useEpisodeContext();
   const allEpisodes = episodeContext.episodes;
-  //   console.log(allEpisodes);
   const titles = allEpisodes.map((episode) => {
     return episode;
   });
@@ -52,8 +51,8 @@ export default function BasicTable() {
             <TableCell>Title</TableCell>
             <TableCell align='left'>Season</TableCell>
             <TableCell align='left'>Episode Number</TableCell>
-            <TableCell align='left'>Air Date</TableCell>
-            <TableCell align='left'>Starring</TableCell>
+            <TableCell align='left'>Original Air Date</TableCell>
+            <TableCell align='left'>Appearnces</TableCell>
           </TableRow>
         </TableHead>
         <TableBody className={classes.text}>
