@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Slide from '@material-ui/core/Slide';
+import './Quote.css';
+
 import { useCharacterContext } from '../contexts/CharacterContext';
 
 export default function Quote() {
@@ -42,7 +44,7 @@ export default function Quote() {
     const photo = image.map((person) => person.img);
 
     return (
-      <div key={item.quote_id} style={style}>
+      <div className="quoteDiv" key={item.quote_id} style={style}>
         <button className='btn' onClick={getNewQuote}>
           New quote
         </button>

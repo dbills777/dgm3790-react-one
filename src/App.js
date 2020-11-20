@@ -18,7 +18,6 @@ const App = () => {
           <>
             <MenuAppBar />
             <div className='image'></div>
-
             <div className='container'>
               <Switch>
                 <Route path='/quotes' component={Quotes} />
