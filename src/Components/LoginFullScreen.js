@@ -11,6 +11,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import './Login.css';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
+import AuthLoginTest from './AuthLoginTest';
+import { useAuth0 } from '@auth0/auth0-react';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -62,6 +64,7 @@ export default function SignInSide(props) {
   const [email, setEmail] = useState('');
   const [member, setMember] = useState('');
   const authContext = useLoginContext();
+  const { user, isAuthenticated } = useAuth0();
 
   const submitHandler = (values) => {
     setMember({
@@ -76,7 +79,7 @@ export default function SignInSide(props) {
 
   console.log(member, first_name, email, last_name);
 
-  return !authContext.isAuth ? (
+  return !authContext.isAuth && !isAuthenticated ? (
     <Grid container component='main' className={classes.root}>
       <Grid item xs={false} sm={4} md={7} className={classes.image} />
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
@@ -191,6 +194,26 @@ export default function SignInSide(props) {
                 >
                   Sign Up
                 </Button>
+                <AuthLoginTest
+                  type='submit'
+                  fullWidth
+                  variant='contained'
+                  className={classes.submit}
+                  onSubmit={(
+                    values,
+                    { setErrors, setStatus, setSubmitting }
+                  ) => {
+                    try {
+                      setFirstName(user.name);
+                      // setLastName(values.lastName);
+                      setEmail(user.email);
+                      submitHandler(values);
+                      authContext.login();
+                    } catch (err) {
+                      console.error(err);
+                    }
+                  }}
+                ></AuthLoginTest>
               </form>
             )}
           </Formik>
@@ -198,9 +221,13 @@ export default function SignInSide(props) {
       </Grid>
     </Grid>
   ) : (
-    <h1>
-      Hello {authContext.name}! Thank You, We will send your Emails to{' '}
-      {authContext.email}.
-    </h1>
-  );
+    isAuthenticated && (
+      <h1>
+        {JSON.stringify(user, null, 2)}
+        Hello {user.name}! Thank You, We will send your Emails to{' '}
+        {authContext.email}.
+      </h1>
+    )
+  )
+
 }

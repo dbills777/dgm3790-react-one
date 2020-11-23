@@ -17,8 +17,9 @@ import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
-import MoreIcon from '@material-ui/icons/MoreVert';
+// import MoreIcon from '@material-ui/icons/MoreVert';
 import { NavLink } from 'react-router-dom';
+import { useAuth0 } from '@auth0/auth0-react';
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -105,6 +106,7 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const authContext = useLoginContext();
+  const { user, isAuthenticated } = useAuth0();
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -122,9 +124,9 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
     handleMobileMenuClose();
   };
 
-  const handleMobileMenuOpen = (event) => {
-    setMobileMoreAnchorEl(event.currentTarget);
-  };
+  // const handleMobileMenuOpen = (event) => {
+  //   setMobileMoreAnchorEl(event.currentTarget);
+  // };
   const alertMessage = () => {
     alert('sign up to view pages');
   };
@@ -218,7 +220,7 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
               inputProps={{ 'aria-label': 'search' }}
             />
           </div> */}
-          {!authContext.isAuth ? (
+          {!authContext.isAuth && !isAuthenticated ? (
             <div>
               <NavLink
                 className={classes.notActive}
@@ -276,27 +278,35 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
               onClick={handleProfileMenuOpen}
               color='inherit'
             >
-              <AccountCircle />
+              {/* <AccountCircle /> */}
             </IconButton>
           </div>
-          <div className={classes.sectionMobile}>
-            <IconButton
-              aria-label='show more'
-              aria-controls={mobileMenuId}
-              aria-haspopup='true'
-              onClick={handleMobileMenuOpen}
-              color='inherit'
-            >
-              <MoreIcon />
-            </IconButton>
-          </div>
+
           <NavLink className={classes.navLinks} to='/'>
-            {!authContext.isAuth ? (
+            {!isAuthenticated ? (
               <Button> Sign UP </Button>
             ) : (
-              <Badge badgeContent={'Thanks'} color='secondary'>
-                <MailIcon />
-              </Badge>
+              <>
+                <p>
+                  {user.name}{' '}
+                  <img
+                    className={'profile-pic'}
+                    src={user.picture}
+                    alt={user.name}
+                  ></img>{' '}
+                </p>
+              </>
+            )}
+            {!authContext.isAuth ? (
+              <Button></Button>
+            ) : (
+              <img
+                className={'profile-pic'}
+                src={
+                  'https://www.pngitem.com/pimgs/m/79-797310_breaking-bad-heisenberg-logo-hd-png-download.png'
+                }
+                alt={'alt'}
+              ></img>
             )}
           </NavLink>
         </Toolbar>

@@ -56,11 +56,11 @@ export default function Quote() {
 
         <p className='flex'>
           {image.length ? (
-            <div>
+            <>
               <Slide direction='left' in={checked} mountOnEnter unmountOnExit>
                 <img alt={photo.id} className='img' src={photo}></img>
               </Slide>
-            </div>
+            </>
           ) : null}
           -{item.author}, {item.series}
         </p>
