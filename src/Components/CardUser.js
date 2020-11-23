@@ -7,16 +7,15 @@ import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Collapse from '@material-ui/core/Collapse';
+import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-// import CardUser from './CardUser'
 import './Card.css';
-import { useCharacterContext } from '../contexts/CharacterContext';
-// import { useAuth0 } from '@auth0/auth0-react';
+import { useAuth0 } from '@auth0/auth0-react';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -58,37 +57,49 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function ListCard() {
-  const items = useCharacterContext();
-  // const { user, isAuthenticated } = useAuth0();
-
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
+  const handleExpandClick = (id) => {
+    const currentChar = user.characters.find((char) => {
+      return char.char_id === id;
+    });
+    console.log(currentChar);
+    if (currentChar) {
+      setExpanded(!expanded);
+    }
+
+    console.log(id);
   };
 
-  return items.characters.map((item, items) => {
-    return (
-      <Card key={item.char_id} className={classes.root}>
+  const { user, isAuthenticated } = useAuth0();
+
+  return (
+    isAuthenticated && (
+      <Card key={user.family_name} className={classes.root}>
         <CardHeader
+          avatar={
+            <Avatar aria-label='recipe' className={classes.avatar}>
+              ID 00
+            </Avatar>
+          }
           action={
             <IconButton aria-label='settings'>
               <MoreVertIcon />
             </IconButton>
           }
           title={classes.title}
-          subheader={item.name}
+          subheader={user.name}
         />
         <CardMedia
           className={classes.media}
-          image={item.img}
-          title='Paella dish'
+          image={user.picture}
+          title='profile'
         />
         <CardContent>
           <Typography variant='body2' color='textSecondary' component='p'>
             <strong>Nick Name: </strong>
-            {item.nickname}
+            {user.nickname}
           </Typography>
         </CardContent>
         <CardActions disableSpacing>
@@ -102,7 +113,7 @@ export default function ListCard() {
             className={clsx(classes.expand, {
               [classes.expandOpen]: expanded,
             })}
-            onClick={() => handleExpandClick(item.char_id)}
+            onClick={() => handleExpandClick(user.name)}
             aria-expanded={expanded}
             aria-label='show more'
           >
@@ -114,28 +125,26 @@ export default function ListCard() {
             <Typography paragraph>
               <strong>INFO:</strong>
             </Typography>
-            {item.birthday !== 'Unknown' ? (
-              <Typography paragraph>
-                <strong>DOB: </strong>
-                {item.birthday}
-              </Typography>
-            ) : null}
+            <Typography paragraph>
+              <strong>Email: </strong>
+              {user.Email}
+            </Typography>
 
             <Typography paragraph>
               <strong>Occupation: </strong>
-              {item.occupation.join(', ')}
+              Guest User
             </Typography>
             <Typography paragraph>
               <strong>Portrayed by : </strong>
-              {item.portrayed}
+              {user.first_name}
             </Typography>
             <Typography paragraph>
               <strong>Living Status: </strong>
-              {item.status}
+              Alive
             </Typography>
           </CardContent>
         </Collapse>
       </Card>
-    );
-  });
+    )
+  );
 }

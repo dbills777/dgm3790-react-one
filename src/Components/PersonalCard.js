@@ -9,6 +9,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { useAuth0 } from '@auth0/auth0-react';
 
+
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
@@ -17,13 +18,14 @@ const useStyles = makeStyles({
     height: 100,
     width: 100,
     borderRadius: '50%',
-    margin: '0,auto',
-  },
+    margin: "0,auto"
+  }
 });
 
 export default function ImgMediaCard() {
   const classes = useStyles();
   const { user, isAuthenticated } = useAuth0();
+
 
   return (
     isAuthenticated && (
@@ -38,7 +40,7 @@ export default function ImgMediaCard() {
             image={user.picture}
             title='Contemplative Reptile'
           />
-
+         
           <CardContent>
             <Typography gutterBottom variant='h5' component='h2'>
               {user.name}
@@ -55,7 +57,11 @@ export default function ImgMediaCard() {
           <Button size='small' color='primary'>
             {user.email}
           </Button>
+          <Button size='small' color='primary'>
+            Learn More
+          </Button>
         </CardActions>
+        {console.log(user)}
       </Card>
     )
   );
