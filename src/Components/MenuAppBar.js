@@ -20,6 +20,7 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 // import MoreIcon from '@material-ui/icons/MoreVert';
 import { NavLink } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
+import AuthLogoutTest from './AuthLogoutTest';
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -200,26 +201,7 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
           >
             <MenuIcon />
           </IconButton>
-          {/* <Typography className={classes.title} variant='h6' noWrap>
-            Search a Character
-          </Typography>
-          <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
-            </div>
-            <InputBase
-              placeholder={text}
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              type='text'
-              autoFocus
-              onChange={(event) => onChange(event.target.value)}
-              value={text}
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </div> */}
+
           {!authContext.isAuth && !isAuthenticated ? (
             <div>
               <NavLink
@@ -260,16 +242,6 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
 
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            {/* <IconButton aria-label='show 4 new mails' color='inherit'>
-              <Badge badgeContent={'Br'} color='secondary'>
-                <MailIcon />
-              </Badge>
-            </IconButton>
-            <IconButton aria-label='show 17 new notifications' color='inherit'>
-              <Badge badgeContent={'Ba'} color='primary'>
-                <NotificationsIcon />
-              </Badge>
-            </IconButton> */}
             <IconButton
               edge='end'
               aria-label='account of current user'
@@ -284,10 +256,13 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
 
           <NavLink className={classes.navLinks} to='/'>
             {!isAuthenticated ? (
-              <Button> Sign UP </Button>
+              <>
+                <Button> Sign UP </Button>
+              </>
             ) : (
               <>
                 <p>
+                  <AuthLogoutTest />
                   {user.name}{' '}
                   <img
                     className={'profile-pic'}

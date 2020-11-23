@@ -11,8 +11,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import './Login.css';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
+import PersonalCard from './PersonalCard'
 import AuthLoginTest from './AuthLoginTest';
 import { useAuth0 } from '@auth0/auth0-react';
+import { ButtonGroup } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -32,7 +34,6 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    // backgroundColor: '#999',
     padding: '2rem',
   },
   text: {
@@ -185,35 +186,36 @@ export default function SignInSide(props) {
                   fullWidth
                   label='Email Address'
                 />
-
-                <Button
-                  type='submit'
-                  fullWidth
-                  variant='contained'
-                  className={classes.submit}
-                >
-                  Sign Up
-                </Button>
-                <AuthLoginTest
-                  type='submit'
-                  fullWidth
-                  variant='contained'
-                  className={classes.submit}
-                  onSubmit={(
-                    values,
-                    { setErrors, setStatus, setSubmitting }
-                  ) => {
-                    try {
-                      setFirstName(user.name);
-                      // setLastName(values.lastName);
-                      setEmail(user.email);
-                      submitHandler(values);
-                      authContext.login();
-                    } catch (err) {
-                      console.error(err);
-                    }
-                  }}
-                ></AuthLoginTest>
+                <ButtonGroup size='large' fullWidth variant='text'>
+                  <Button
+                    type='submit'
+                    fullWidth
+                    variant='contained'
+                    className={classes.submit}
+                  >
+                    Sign-Up
+                  </Button>
+                  <AuthLoginTest
+                    type='submit'
+                    fullWidth
+                    variant='contained'
+                    className={classes.submit}
+                    onSubmit={(
+                      values,
+                      { setErrors, setStatus, setSubmitting }
+                    ) => {
+                      try {
+                        setFirstName(user.name);
+                        // setLastName(values.lastName);
+                        setEmail(user.email);
+                        submitHandler(values);
+                        authContext.login();
+                      } catch (err) {
+                        console.error(err);
+                      }
+                    }}
+                  ></AuthLoginTest>
+                </ButtonGroup>
               </form>
             )}
           </Formik>
@@ -222,12 +224,7 @@ export default function SignInSide(props) {
     </Grid>
   ) : (
     isAuthenticated && (
-      <h1>
-        {JSON.stringify(user, null, 2)}
-        Hello {user.name}! Thank You, We will send your Emails to{' '}
-        {authContext.email}.
-      </h1>
+      <PersonalCard/>
     )
-  )
-
+  );
 }
