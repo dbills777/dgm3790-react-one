@@ -16,6 +16,8 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import './Card.css';
 import { useAuth0 } from '@auth0/auth0-react';
+import AllCards from './Card';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
   },
   media: {
     width: '100%',
-    height: '150px',
+    height: '100px',
     paddingTop: '56.25%',
   },
   clicked: {
@@ -60,29 +62,19 @@ export default function ListCard() {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
-  const handleExpandClick = (id) => {
-    const currentChar = user.characters.find((char) => {
-      return char.char_id === id;
-    });
-    console.log(currentChar);
-    if (currentChar) {
+  const handleExpandClick = (id) => {  
       setExpanded(!expanded);
     }
 
-    console.log(id);
-  };
 
   const { user, isAuthenticated } = useAuth0();
 
   return (
-    isAuthenticated && (
+    isAuthenticated ? (
+      <>
       <Card key={user.family_name} className={classes.root}>
         <CardHeader
-          avatar={
-            <Avatar aria-label='recipe' className={classes.avatar}>
-              ID 00
-            </Avatar>
-          }
+          
           action={
             <IconButton aria-label='settings'>
               <MoreVertIcon />
@@ -136,7 +128,7 @@ export default function ListCard() {
             </Typography>
             <Typography paragraph>
               <strong>Portrayed by : </strong>
-              {user.first_name}
+              {user.given_name}
             </Typography>
             <Typography paragraph>
               <strong>Living Status: </strong>
@@ -145,6 +137,8 @@ export default function ListCard() {
           </CardContent>
         </Collapse>
       </Card>
-    )
+      <AllCards/>
+      </>
+    ) : (<AllCards/>)
   );
 }

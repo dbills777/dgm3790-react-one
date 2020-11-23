@@ -64,7 +64,7 @@ export default function ListCard() {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
-  const handleExpandClick = () => {
+  const handleExpandClick = (id) => {
     setExpanded(!expanded);
   };
 
