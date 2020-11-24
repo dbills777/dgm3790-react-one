@@ -7,7 +7,7 @@ const AuthLogoutTest = () => {
   const { logout } = useAuth0();
 
   return (
-    <NavLink to='/' onClick={() => logout()}>
+    <NavLink to='/quotes' onClick={() => logout()}>
       <Button color='default' variant='contained'>
         Logout
       </Button>
