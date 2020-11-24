@@ -60,15 +60,16 @@ const useStyles = makeStyles((theme) => ({
 export default function ListCard() {
   const items = useCharacterContext();
   // const { user, isAuthenticated } = useAuth0();
-
+  console.log(items.characters)
   const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);
-
   const handleExpandClick = (id) => {
     setExpanded(!expanded);
   };
-
-  return items.characters.map((item, items) => {
+  
+  const [expanded, setExpanded] = React.useState(false);
+  
+  return items.characters.map((item) => {
+    
     return (
       <Card key={item.char_id} className={classes.root}>
         <CardHeader
@@ -83,7 +84,7 @@ export default function ListCard() {
         <CardMedia
           className={classes.media}
           image={item.img}
-          title='Paella dish'
+          title={item.name}
         />
         <CardContent>
           <Typography variant='body2' color='textSecondary' component='p'>
