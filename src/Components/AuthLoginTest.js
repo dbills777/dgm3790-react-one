@@ -24,7 +24,7 @@ const AuthLoginTest = () => {
       variant='contained'
       className={classes.submit}
     >
-      0-Auth
+      Google Login
     </Button>
   );
 };
