@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
   },
   media: {
     width: '100%',
-    height: '100px',
+    height: '150px',
     paddingTop: '56.25%',
   },
   clicked: {
