@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, fade } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -13,12 +13,22 @@ import { Typography } from '@material-ui/core';
 const useStyles = makeStyles({
   table: {
     minWidth: 650,
+    color: '#111',
+    backgroundColor: fade('#333', 0.45),
+  },
+  row: {
+        '&:hover': {
+          backgroundColor: fade('#333', 0.25),
+        },
+
   },
   header: {
+    backgroundColor: fade('#333', 0.45),
     fontSize: '3rem',
     padding: '1.5rem',
-    color: '#999',
+    color: '#222',
     textAlign: 'Center',
+    textDecoration: 'underline'
   },
   characterWidth: {
     maxWidth: '300px',
@@ -57,7 +67,7 @@ export default function BasicTable() {
         </TableHead>
         <TableBody className={classes.text}>
           {titles.map((row) => (
-            <TableRow key={Math.random()}>
+            <TableRow className = {classes.row} key={Math.random()}>
               <TableCell component='th' scope='row'>
                 {row.title}
               </TableCell>
