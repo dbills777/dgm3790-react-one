@@ -1,26 +1,54 @@
 import React from 'react';
 import { makeStyles, fade } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
+import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
 import { useEpisodeContext } from '../contexts/EpisodeContext';
 import { Typography } from '@material-ui/core';
 
+
+
+const columns = [
+  { id: 'title', label: 'Title', minWidth: 170 },
+  { id: 'season', label: 'Season', minWidth: 100 },
+  { id: 'episode', label: 'Episode Number', minWidth: 100 },
+  {
+    id: 'air_date',
+    label: 'Original Air Date',
+    minWidth: 170,
+    align: 'right',
+  },
+  {
+    id: 'characters',
+    label: 'Appearances',
+    minWidth: 170,
+    align: 'right',
+    format: (value) => value.join(', \n'),
+  },
+];
+
+function createData(title, season, number, date, appears) {
+  return { title, season, number, date, appears };
+}
+
+
+
 const useStyles = makeStyles({
+  root: {
+    width: '80%',
+  },
+  container: {
+    maxHeight: 500,
+  },
   table: {
     minWidth: 650,
     color: '#111',
     backgroundColor: fade('#333', 0.45),
-  },
-  row: {
-        '&:hover': {
-          backgroundColor: fade('#333', 0.25),
-        },
-
   },
   header: {
     backgroundColor: fade('#333', 0.45),
@@ -28,59 +56,94 @@ const useStyles = makeStyles({
     padding: '1.5rem',
     color: '#222',
     textAlign: 'Center',
-    textDecoration: 'underline'
+    textDecoration: 'underline',
   },
-  characterWidth: {
-    maxWidth: '300px',
+  row: {
+    '&:hover': {
+      backgroundColor: fade('#333', 0.25),
+    },
   },
 });
 
-function createData(title, season, number, date, appears) {
-  return { title, season, number, date, appears };
-}
-
-export default function BasicTable() {
+export default function StickyHeadTable() {
   const classes = useStyles();
+  const [page, setPage] = React.useState(0);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
   const episodeContext = useEpisodeContext();
   const allEpisodes = episodeContext.episodes;
   const titles = allEpisodes.map((episode) => {
     return episode;
   });
-
+  let rows = [createData(titles)];
   console.log(titles);
-  const rows = [createData(titles)];
-  console.log(rows);
+  console.log(rows[0].title);
+  rows = rows[0].title
+  
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(+event.target.value);
+    setPage(0);
+  };
+
   return (
-    <TableContainer component={Paper}>
-      <Typography className={classes.header}>
-        Full Breaking Bad Episode List
-      </Typography>
-      <Table className={classes.table} aria-label='simple table'>
-        <TableHead>
-          <TableRow>
-            <TableCell>Title</TableCell>
-            <TableCell align='left'>Season</TableCell>
-            <TableCell align='left'>Episode Number</TableCell>
-            <TableCell align='left'>Original Air Date</TableCell>
-            <TableCell align='left'>Appearnces</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody className={classes.text}>
-          {titles.map((row) => (
-            <TableRow className = {classes.row} key={Math.random()}>
-              <TableCell component='th' scope='row'>
-                {row.title}
-              </TableCell>
-              <TableCell align='left'>Season: {row.season}</TableCell>
-              <TableCell align='left'>Episode: #{row.episode}</TableCell>
-              <TableCell align='left'>{row.air_date}</TableCell>
-              <TableCell className={classes.characterWidth} align='left'>
-                {row.characters.join(', \n')}
-              </TableCell>
+    <Paper className={classes.root}>
+      <TableContainer className={classes.container}>
+        <Typography className={classes.header}>
+          Full Breaking Bad Episode List
+        </Typography>
+        <Table stickyHeader aria-label='sticky table' className={classes.table}>
+          <TableHead>
+            <TableRow className={classes.table}>
+              {columns.map((column) => (
+                <TableCell
+                  key={column.id}
+                  align={column.align}
+                  style={{ minWidth: column.minWidth }}
+                >
+                  {column.label}
+                </TableCell>
+              ))}
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+          </TableHead>
+          <TableBody>
+            {rows
+              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+              .map((row) => {
+                return (
+                  <TableRow
+                    hover
+                    role='checkbox'
+                    tabIndex={-1}
+                    key={row.episode_id}
+                  >
+                    {columns.map((column) => {
+                      const value = row[column.id];
+                      return (
+                        <TableCell key={column.id} align={column.align}>
+                          {column.format && typeof value === 'number'
+                            ? column.format(value)
+                            : value}
+                        </TableCell>
+                      );
+                    })}
+                  </TableRow>
+                );
+              })}
+          </TableBody>
+        </Table>
+      </TableContainer>
+      <TablePagination
+        rowsPerPageOptions={[10, 25, 100]}
+        component='div'
+        count={rows.length}
+        rowsPerPage={rowsPerPage}
+        page={page}
+        onChangePage={handleChangePage}
+        onChangeRowsPerPage={handleChangeRowsPerPage}
+      />
+    </Paper>
   );
 }
