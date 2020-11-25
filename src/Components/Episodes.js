@@ -46,6 +46,7 @@ const useStyles = makeStyles({
     maxHeight: 500,
   },
   table: {
+    scrollbar: '#F5f5f5',
     minWidth: 650,
     color: '#111',
     backgroundColor: fade('#333', 0.45),
@@ -63,6 +64,7 @@ const useStyles = makeStyles({
       backgroundColor: fade('#333', 0.25),
     },
   },
+  
 });
 
 export default function StickyHeadTable() {
@@ -123,7 +125,7 @@ export default function StickyHeadTable() {
                       const value = row[column.id];
                       return (
                         <TableCell key={column.id} align={column.align}>
-                          {column.format && typeof value === 'number'
+                          {column.format && typeof value === 'string'
                             ? column.format(value)
                             : value}
                         </TableCell>
