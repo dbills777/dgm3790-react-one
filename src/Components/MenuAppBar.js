@@ -275,6 +275,8 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
             {!authContext.isAuth ? (
               <Button></Button>
             ) : (
+              <>
+              <Button onClick = {()=>authContext.login()}>Logout</Button>
               <img
                 className={'profile-pic'}
                 src={
@@ -282,6 +284,7 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
                 }
                 alt={'alt'}
               ></img>
+              </>
             )}
           </NavLink>
         </Toolbar>
