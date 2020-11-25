@@ -262,7 +262,7 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
             ) : (
               <>
                 <p>
-                  <AuthLogoutTest />
+                  <AuthLogoutTest onClick ={()=>isAuthenticated.logout()}/>
                   {user.name}{' '}
                   <img
                     className={'profile-pic'}
