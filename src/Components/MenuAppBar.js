@@ -107,7 +107,7 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const authContext = useLoginContext();
-  const { user, isAuthenticated } = useAuth0();
+  let { user, isAuthenticated } = useAuth0();
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -262,7 +262,7 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
             ) : (
               <>
                 <p>
-                  <AuthLogoutTest onClick ={()=>isAuthenticated.logout()}/>
+                  <AuthLogoutTest onClick ={()=> {isAuthenticated = !isAuthenticated}}/>
                   {user.name}{' '}
                   <img
                     className={'profile-pic'}
