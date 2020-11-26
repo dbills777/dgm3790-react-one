@@ -262,7 +262,9 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
             ) : (
               <>
                 <p>
-                  <AuthLogoutTest onClick ={()=> {isAuthenticated = !isAuthenticated}}/>
+                  <NavLink to='/login'>
+                    <AuthLogoutTest onClick={() => isAuthenticated()} />
+                  </NavLink>
                   {user.name}{' '}
                   <img
                     className={'profile-pic'}
@@ -276,14 +278,14 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
               <Button></Button>
             ) : (
               <>
-              <Button onClick = {()=>authContext.login()}>Logout</Button>
-              <img
-                className={'profile-pic'}
-                src={
-                  'https://www.pngitem.com/pimgs/m/79-797310_breaking-bad-heisenberg-logo-hd-png-download.png'
-                }
-                alt={'alt'}
-              ></img>
+                <Button onClick={() => authContext.login()}>Logout</Button>
+                <img
+                  className={'profile-pic'}
+                  src={
+                    'https://www.pngitem.com/pimgs/m/79-797310_breaking-bad-heisenberg-logo-hd-png-download.png'
+                  }
+                  alt={'alt'}
+                ></img>
               </>
             )}
           </NavLink>

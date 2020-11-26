@@ -32,6 +32,7 @@ const App = () => {
                   <Route path='/quotes' component={Quotes} />
                   <Route path='/episodes' component={Episodes} />
                   <Route path='/characters' component={CardUser} />
+                  <Route path='/login' component={LoginFullScreen} />
                   <Route path='/' component={LoginFullScreen} />
                 </Switch>
               </div>
