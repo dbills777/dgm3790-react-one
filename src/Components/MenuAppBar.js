@@ -263,7 +263,7 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
               <>
                 <p>
                   <NavLink to='/login'>
-                    <AuthLogoutTest onClick={() => isAuthenticated()} />
+                    <AuthLogoutTest  />
                   </NavLink>
                   {user.name}{' '}
                   <img
