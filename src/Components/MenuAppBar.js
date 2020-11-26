@@ -107,7 +107,7 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const authContext = useLoginContext();
-  let { user, isAuthenticated } = useAuth0();
+  const { user, isAuthenticated } = useAuth0();
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -262,9 +262,7 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
             ) : (
               <>
                 <p>
-                  <NavLink to='/login'>
-                    <AuthLogoutTest  />
-                  </NavLink>
+                  <AuthLogoutTest onClick ={()=>isAuthenticated.logout()}/>
                   {user.name}{' '}
                   <img
                     className={'profile-pic'}
@@ -278,14 +276,14 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
               <Button></Button>
             ) : (
               <>
-                <Button onClick={() => authContext.login()}>Logout</Button>
-                <img
-                  className={'profile-pic'}
-                  src={
-                    'https://www.pngitem.com/pimgs/m/79-797310_breaking-bad-heisenberg-logo-hd-png-download.png'
-                  }
-                  alt={'alt'}
-                ></img>
+              <Button onClick = {()=>authContext.login()}>Logout</Button>
+              <img
+                className={'profile-pic'}
+                src={
+                  'https://www.pngitem.com/pimgs/m/79-797310_breaking-bad-heisenberg-logo-hd-png-download.png'
+                }
+                alt={'alt'}
+              ></img>
               </>
             )}
           </NavLink>
