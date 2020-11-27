@@ -26,6 +26,7 @@ const useStyles = makeStyles((theme) => ({
     borderRight: '3px solid #018619',
     borderBottom: '3px solid #018619',
     backgroundColor: 'gray',
+    border: '10px solid white'
   },
   media: {
     width: '100%',
@@ -136,7 +137,10 @@ export default function ListCard() {
           </CardContent>
         </Collapse>
       </Card>
+      <div className= {classes.white}>
+            <h1>test</h1>
       <AllCards/>
+      </div>
       </>
     ) : (<AllCards/>)
   );

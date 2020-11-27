@@ -60,16 +60,14 @@ const useStyles = makeStyles((theme) => ({
 export default function ListCard() {
   const items = useCharacterContext();
   // const { user, isAuthenticated } = useAuth0();
-  console.log(items.characters)
+  console.log(items.characters);
   const classes = useStyles();
+  const [expanded, setExpanded] = React.useState({});
   const handleExpandClick = (id) => {
-    setExpanded(!expanded);
+    setExpanded({ ...expanded, [id]: !expanded[id] });
   };
-  
-  const [expanded, setExpanded] = React.useState(false);
-  
+
   return items.characters.map((item) => {
-    
     return (
       <Card key={item.char_id} className={classes.root}>
         <CardHeader
@@ -110,7 +108,7 @@ export default function ListCard() {
             <ExpandMoreIcon />
           </IconButton>
         </CardActions>
-        <Collapse in={expanded} timeout='auto' unmountOnExit>
+        <Collapse in={expanded[item.char_id]} timeout='auto' unmountOnExit>
           <CardContent>
             <Typography paragraph>
               <strong>INFO:</strong>
