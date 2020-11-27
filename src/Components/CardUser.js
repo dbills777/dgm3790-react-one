@@ -118,7 +118,7 @@ export default function ListCard() {
             </Typography>
             <Typography paragraph>
               <strong>Email: </strong>
-              {user.Email}
+              {user.email}
             </Typography>
 
             <Typography paragraph>

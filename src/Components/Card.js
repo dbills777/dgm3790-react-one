@@ -98,8 +98,8 @@ export default function ListCard() {
             <ShareIcon />
           </IconButton>
           <IconButton
-            className={clsx(classes.expand, {
-              [classes.expandOpen]: expanded,
+            className={clsx(classes.expand[item.char_id], {
+              [classes.expandOpen]: expanded[item.char_id],
             })}
             onClick={() => handleExpandClick(item.char_id)}
             aria-expanded={expanded}

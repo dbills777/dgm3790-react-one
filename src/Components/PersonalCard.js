@@ -8,7 +8,6 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { useAuth0 } from '@auth0/auth0-react';
-import ReactPlayer from 'react-player';
 
 
 
@@ -66,7 +65,7 @@ export default function ImgMediaCard() {
           </CardActions>
           {console.log(user)}
         </Card>
-        <ReactPlayer url='https://www.youtube.com/watch?v=F1HNuAE9WdU' playing = {true}></ReactPlayer>
+        
       </>
     )
   );
