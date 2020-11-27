@@ -15,13 +15,14 @@ import { Typography } from '@material-ui/core';
 
 const columns = [
   { id: 'title', label: 'Title', minWidth: 170 },
-  { id: 'season', label: 'Season', minWidth: 100 },
-  { id: 'episode', label: 'Episode Number', minWidth: 100 },
+  { id: 'season', label: 'Season', minWidth: 100, text: 'Season #' },
+  { id: 'episode', label: 'Episode Number', minWidth: 100, text: 'Episode #' },
   {
     id: 'air_date',
     label: 'Original Air Date',
     minWidth: 170,
     align: 'right',
+    text: 'Aired on: '
   },
   {
     id: 'characters',
@@ -125,6 +126,7 @@ export default function StickyHeadTable() {
                       const value = row[column.id];
                       return (
                         <TableCell key={column.id} align={column.align}>
+                          {column.text}
                           {column.format && typeof value === 'number'
                             ? column.format(value)
                             : value}
