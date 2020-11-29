@@ -15,9 +15,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 const AuthLoginTest = () => {
   const classes = useStyles();
-  const { loginWithRedirect } = useAuth0();
+  const { loginWithRedirect, isAuthenticated } = useAuth0();
 
   return (
+    !isAuthenticated &&(
     <Button
       onClick={() => loginWithRedirect()}
       fullWidth
@@ -26,6 +27,7 @@ const AuthLoginTest = () => {
     >
       Google Login
     </Button>
+    )
   );
 };
 

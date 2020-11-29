@@ -14,9 +14,9 @@ import { Typography } from '@material-ui/core';
 
 
 const columns = [
-  { id: 'title', label: 'Title', minWidth: 170 },
+  { id: 'title', label: 'Title', minWidth: 170, text: 'Episode Title - ' },
   { id: 'season', label: 'Season', minWidth: 100, text: 'Season #' },
-  { id: 'episode', label: 'Episode Number', minWidth: 100, text: 'Episode #' },
+  { id: 'episode', label: 'Episode Number', minWidth: 100, text: 'Episode' },
   {
     id: 'air_date',
     label: 'Original Air Date',
@@ -140,10 +140,10 @@ export default function StickyHeadTable() {
         </Table>
       </TableContainer>
       <TablePagination
-        rowsPerPageOptions={[10, 25, 100]}
+        rowsPerPage={rowsPerPage}
+        rowsPerPageOptions={[10, 25, 50, 75 ]}
         component='div'
         count={rows.length}
-        rowsPerPage={rowsPerPage}
         page={page}
         onChangePage={handleChangePage}
         onChangeRowsPerPage={handleChangeRowsPerPage}

@@ -66,6 +66,7 @@ export default function ListCard() {
   const handleExpandClick = (id) => {
     setExpanded({ ...expanded, [id]: !expanded[id] });
   };
+  
 
   return items.characters.map((item) => {
     return (
