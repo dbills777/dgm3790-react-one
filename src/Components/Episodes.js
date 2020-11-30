@@ -11,8 +11,6 @@ import TableRow from '@material-ui/core/TableRow';
 import { useEpisodeContext } from '../contexts/EpisodeContext';
 import { Typography } from '@material-ui/core';
 
-
-
 const columns = [
   { id: 'title', label: 'Title', minWidth: 170, text: 'Episode Title - ' },
   { id: 'season', label: 'Season', minWidth: 100, text: 'Season #' },
@@ -22,7 +20,7 @@ const columns = [
     label: 'Original Air Date',
     minWidth: 170,
     align: 'right',
-    text: 'Aired on: '
+    text: 'Aired on: ',
   },
   {
     id: 'characters',
@@ -36,8 +34,6 @@ const columns = [
 function createData(title, season, number, date, appears) {
   return { title, season, number, date, appears };
 }
-
-
 
 const useStyles = makeStyles({
   root: {
@@ -65,7 +61,6 @@ const useStyles = makeStyles({
       backgroundColor: fade('#333', 0.25),
     },
   },
-  
 });
 
 export default function StickyHeadTable() {
@@ -80,8 +75,8 @@ export default function StickyHeadTable() {
   let rows = [createData(titles)];
   console.log(titles);
   console.log(rows[0].title);
-  rows = rows[0].title
-  
+  rows = rows[0].title;
+
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
@@ -141,7 +136,7 @@ export default function StickyHeadTable() {
       </TableContainer>
       <TablePagination
         rowsPerPage={rowsPerPage}
-        rowsPerPageOptions={[10, 25, 50, 75 ]}
+        rowsPerPageOptions={[10, 25, 50, 75]}
         component='div'
         count={rows.length}
         page={page}

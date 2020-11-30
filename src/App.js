@@ -17,9 +17,9 @@ const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
 const App = () => {
   return (
     <Auth0Provider
-      domain = {domain}
-      clientId = {clientId}
-      redirectUri = {window.location.origin}
+      domain={domain}
+      clientId={clientId}
+      redirectUri={window.location.origin}
     >
       <LoginContextProvider>
         <CharacterContextProvider>

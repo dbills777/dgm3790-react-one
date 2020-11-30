@@ -18,15 +18,15 @@ const AuthLoginTest = () => {
   const { loginWithRedirect, isAuthenticated } = useAuth0();
 
   return (
-    !isAuthenticated &&(
-    <Button
-      onClick={() => loginWithRedirect()}
-      fullWidth
-      variant='contained'
-      className={classes.submit}
-    >
-      Google Login
-    </Button>
+    !isAuthenticated && (
+      <Button
+        onClick={() => loginWithRedirect()}
+        fullWidth
+        variant='contained'
+        className={classes.submit}
+      >
+        Google Login
+      </Button>
     )
   );
 };

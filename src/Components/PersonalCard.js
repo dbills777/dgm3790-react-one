@@ -9,8 +9,6 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { useAuth0 } from '@auth0/auth0-react';
 
-
-
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
@@ -19,14 +17,13 @@ const useStyles = makeStyles({
     height: 100,
     width: 100,
     borderRadius: '50%',
-    margin: "0,auto"
-  }
+    margin: '0,auto',
+  },
 });
 
 export default function ImgMediaCard() {
   const classes = useStyles();
   const { user, isAuthenticated } = useAuth0();
-
 
   return (
     isAuthenticated && (
@@ -65,7 +62,6 @@ export default function ImgMediaCard() {
           </CardActions>
           {console.log(user)}
         </Card>
-        
       </>
     )
   );

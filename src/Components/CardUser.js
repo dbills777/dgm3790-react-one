@@ -17,7 +17,6 @@ import './Card.css';
 import { useAuth0 } from '@auth0/auth0-react';
 import AllCards from './Card';
 
-
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 200,
@@ -61,19 +60,16 @@ export default function ListCard() {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
-  const handleExpandClick = (id) => {  
-      setExpanded(!expanded);
-    }
-
+  const handleExpandClick = (id) => {
+    setExpanded(!expanded);
+  };
 
   const { user, isAuthenticated } = useAuth0();
 
-  return (
-    isAuthenticated ? (
-      <>
+  return isAuthenticated ? (
+    <>
       <Card key={user.family_name} className={classes.root}>
         <CardHeader
-          
           action={
             <IconButton aria-label='settings'>
               <MoreVertIcon />
@@ -136,10 +132,10 @@ export default function ListCard() {
           </CardContent>
         </Collapse>
       </Card>
-      
-      <AllCards/>
-    
+
+      <AllCards />
     </>
-    ) : <AllCards/>
+  ) : (
+    <AllCards />
   );
 }

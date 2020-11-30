@@ -11,7 +11,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import './Login.css';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import PersonalCard from './PersonalCard'
+import PersonalCard from './PersonalCard';
 import AuthLoginTest from './AuthLoginTest';
 import { useAuth0 } from '@auth0/auth0-react';
 import { ButtonGroup } from '@material-ui/core';
@@ -223,8 +223,6 @@ export default function SignInSide(props) {
       </Grid>
     </Grid>
   ) : (
-    isAuthenticated && (
-      <PersonalCard/>
-    )
+    isAuthenticated && <PersonalCard />
   );
 }

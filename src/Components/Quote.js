@@ -44,7 +44,7 @@ export default function Quote() {
     const photo = image.map((person) => person.img);
 
     return (
-      <div className="quoteDiv" key={item.quote_id} style={style}>
+      <div className='quoteDiv' key={item.quote_id} style={style}>
         <button className='btn' onClick={getNewQuote}>
           New quote
         </button>
