@@ -105,7 +105,7 @@ const useStyles = makeStyles((theme) => ({
 export default function PrimarySearchAppBar({ getQuery, props }) {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(true);
   const authContext = useLoginContext();
   const { user, isAuthenticated } = useAuth0();
 
