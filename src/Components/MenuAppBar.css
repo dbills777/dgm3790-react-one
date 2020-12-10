@@ -1,0 +1,13 @@
+.drawer{
+    background-color: rgba(84, 84, 84, 0.278);
+}
+.color{
+    height: 100vh;
+    background-color: #018619;
+}
+.drawer-header{
+    color: rgb(255, 255, 255);
+    background-color: black;
+    padding: 1rem;
+    margin: 0;
+}

@@ -1,23 +1,19 @@
-import React from 'react';
-// import React, { useState } from 'react';
-import { fade, makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
+import React, { useState } from 'react';
 import { useLoginContext } from '../contexts/LoginContext';
-
-import Toolbar from '@material-ui/core/Toolbar';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-// import Typography from '@material-ui/core/Typography';
-// import InputBase from '@material-ui/core/InputBase';
-import Badge from '@material-ui/core/Badge';
-import MenuItem from '@material-ui/core/MenuItem';
-import Menu from '@material-ui/core/Menu';
+import './MenuAppBar.css';
+import {
+  Drawer,
+  List,
+  ListItem,
+  Divider,
+  Toolbar,
+  Button,
+  IconButton,
+  AppBar,
+  fade,
+  makeStyles,
+} from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
-// import SearchIcon from '@material-ui/icons/Search';
-import AccountCircle from '@material-ui/icons/AccountCircle';
-import MailIcon from '@material-ui/icons/Mail';
-import NotificationsIcon from '@material-ui/icons/Notifications';
-// import MoreIcon from '@material-ui/icons/MoreVert';
 import { NavLink } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 import AuthLogoutTest from './AuthLogoutTest';
@@ -104,129 +100,96 @@ const useStyles = makeStyles((theme) => ({
 
 export default function PrimarySearchAppBar({ getQuery, props }) {
   const classes = useStyles();
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(true);
   const authContext = useLoginContext();
   const { user, isAuthenticated } = useAuth0();
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
-  const isMenuOpen = Boolean(anchorEl);
-  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-
-  const handleProfileMenuOpen = (event) => {
-    setAnchorEl(event.currentTarget);
+  const handleDrawerToggle = () => {
+    setDrawerOpen(!drawerOpen);
   };
 
-  const handleMobileMenuClose = () => {
-    setMobileMoreAnchorEl(null);
-  };
-
-  const handleMenuClose = () => {
-    setAnchorEl(null);
-    handleMobileMenuClose();
-  };
-
-  // const handleMobileMenuOpen = (event) => {
-  //   setMobileMoreAnchorEl(event.currentTarget);
-  // };
   const alertMessage = () => {
     alert('sign up to view pages');
   };
 
-  const menuId = 'primary-search-account-menu';
-  const renderMenu = (
-    <Menu
-      anchorEl={anchorEl}
-      anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-      id={menuId}
-      keepMounted
-      transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-      open={isMenuOpen}
-      onClose={handleMenuClose}
-    >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-    </Menu>
-  );
-
-  const mobileMenuId = 'primary-search-account-menu-mobile';
-  const renderMobileMenu = (
-    <Menu
-      anchorEl={mobileMoreAnchorEl}
-      anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-      id={mobileMenuId}
-      keepMounted
-      transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-      open={isMobileMenuOpen}
-      onClose={handleMobileMenuClose}
-    >
-      <MenuItem>
-        <IconButton aria-label='show 4 new mails' color='inherit'>
-          <Badge badgeContent={11} color='secondary'>
-            <MailIcon />
-          </Badge>
-        </IconButton>
-        <p>Messages</p>
-      </MenuItem>
-      <MenuItem>
-        <IconButton aria-label='show 11 new notifications' color='inherit'>
-          <Badge badgeContent={11} color='secondary'>
-            <NotificationsIcon />
-          </Badge>
-        </IconButton>
-        <p>Notifications</p>
-      </MenuItem>
-      <MenuItem onClick={handleProfileMenuOpen}>
-        <IconButton
-          aria-label='account of current user'
-          aria-controls='primary-search-account-menu'
-          aria-haspopup='true'
-          color='inherit'
-        >
-          <AccountCircle />
-        </IconButton>
-        <p>Profile</p>
-      </MenuItem>
-    </Menu>
-  );
-
   return (
-    <div className={classes.grow}>
-      <AppBar position='static' className={classes.appBar}>
-        <Toolbar>
+    <div className={classes.appBar}>
+      <AppBar position='static'>
+        <Toolbar className={classes.appBar}>
           <IconButton
             edge='start'
-            className={classes.menuButton}
             color='inherit'
-            aria-label='open drawer'
+            aria-label='menu'
+            onClick={handleDrawerToggle}
           >
             <MenuIcon />
           </IconButton>
-
+          <Drawer
+            open={drawerOpen}
+            onClose={handleDrawerToggle}
+            className='drawer'
+          >
+            <h3 className='drawer-header'>Breaking Bad Application</h3>
+            <Divider />
+            <List className='color'>
+              <ListItem>
+                <NavLink
+                  to='/characters'
+                  className={classes.navLinks}
+                  onClick={handleDrawerToggle}
+                >
+                  Characters
+                </NavLink>
+              </ListItem>
+              <ListItem>
+                <NavLink
+                  to='/quotes'
+                  onClick={handleDrawerToggle}
+                  className={classes.navLinks}
+                >
+                  Quotes
+                </NavLink>
+              </ListItem>
+              <ListItem>
+                <NavLink
+                  to='/episodes'
+                  className={classes.navLinks}
+                  onClick={handleDrawerToggle}
+                >
+                  Episodes
+                </NavLink>
+              </ListItem>
+            </List>
+          </Drawer>
           {!authContext.isAuth && !isAuthenticated ? (
-            <div>
-              <NavLink
-                className={classes.notActive}
-                to='#'
-                onClick={alertMessage}
-              >
-                Characters
-              </NavLink>
-              <NavLink
-                className={classes.notActive}
-                to='#'
-                onClick={alertMessage}
-              >
-                Quotes
-              </NavLink>
-              <NavLink
-                className={classes.notActive}
-                to='#'
-                onClick={alertMessage}
-              >
-                Episode Table
-              </NavLink>
-            </div>
+            <>
+              <div>
+                <NavLink
+                  className={classes.notActive}
+                  to='#'
+                  onClick={alertMessage}
+                >
+                  Characters
+                </NavLink>
+                <NavLink
+                  className={classes.notActive}
+                  to='#'
+                  onClick={alertMessage}
+                >
+                  Quotes
+                </NavLink>
+                <NavLink
+                  className={classes.notActive}
+                  to='#'
+                  onClick={alertMessage}
+                >
+                  Episode Table
+                </NavLink>
+              </div>
+              <h1>Breaking Bad Application</h1>
+            </>
           ) : (
+            <>
             <div>
               <NavLink className={classes.navLinks} to='/characters'>
                 Characters
@@ -238,6 +201,8 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
                 Episodes Table
               </NavLink>
             </div>
+              <h1>Breaking Bad Page</h1>
+              </>
           )}
 
           <div className={classes.grow} />
@@ -245,9 +210,7 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
             <IconButton
               edge='end'
               aria-label='account of current user'
-              aria-controls={menuId}
               aria-haspopup='true'
-              onClick={handleProfileMenuOpen}
               color='inherit'
             >
               {/* <AccountCircle /> */}
@@ -289,8 +252,6 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
           </NavLink>
         </Toolbar>
       </AppBar>
-      {renderMobileMenu}
-      {renderMenu}
     </div>
   );
 }
