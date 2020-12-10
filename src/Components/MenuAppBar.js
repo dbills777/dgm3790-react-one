@@ -186,10 +186,8 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
                   Episode Table
                 </NavLink>
               </div>
-              <h1>Breaking Bad Application</h1>
             </>
           ) : (
-            <>
             <div>
               <NavLink className={classes.navLinks} to='/characters'>
                 Characters
@@ -201,8 +199,6 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
                 Episodes Table
               </NavLink>
             </div>
-              <h1>Breaking Bad Page</h1>
-              </>
           )}
 
           <div className={classes.grow} />
