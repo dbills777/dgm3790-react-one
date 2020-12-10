@@ -21,16 +21,26 @@ import { useCharacterContext } from '../contexts/CharacterContext';
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 200,
+    minWidth: 200,
     height: '100%',
     margin: '10px',
-    borderRight: '3px solid #018619',
-    borderBottom: '3px solid #018619',
+    borderRight: '3px solid #999',
+    borderBottom: '3px solid #999',
+    padding: '3em',
+    borderRadius: '1rem',
+    position: 'relative',
+    zIndex: '1',
+    backdropFilter: 'blur(40px)',
     backgroundColor: 'gray',
   },
   media: {
     width: '100%',
     height: '150px',
     paddingTop: '56.25%',
+    backdropFilter: 'blur(40px)',
+    borderRadius: '1rem',
+
+    position: 'relative',
   },
   clicked: {
     color: 'red',

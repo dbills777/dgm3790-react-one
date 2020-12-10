@@ -216,7 +216,7 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
           <NavLink className={classes.navLinks} to='/'>
             {!isAuthenticated ? (
               <>
-                <Button> Sign UP </Button>
+                <Button > Sign UP </Button>
               </>
             ) : (
               <>
