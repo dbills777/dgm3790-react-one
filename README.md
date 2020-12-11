@@ -3,12 +3,12 @@
 ## 3. Work with command-line tools and NPM to create and manage your project within a real development toolset.
 ## 4. Allow communication between components using props and the Context API.
   - [EpisodeContext.js](/src/Components/EpisodeContext.js) -> Props Communication between components.
-  
+
   ``` javascript
   export const EpisodeContextProvider = (props) => {
   const [episodes, setEpisodes] = useState([]);
   const url = 'https://www.breakingbadapi.com/api/episodes?series=Breaking+Bad';
-  
+
   useEffect(() => {
     const getCharacters = async () => {
       try {
@@ -28,7 +28,7 @@
 };
 ```
 
-  - Context API used to handle custom login. 
+  - Context API used to handle custom login.
 
   ``` javascript
     export const useEpisodeContext = () => useContext(EpisodeContext);
@@ -41,17 +41,17 @@
     setEmail: () => {},
   });
   ```
-  - [LoginContext.js](/src/Components/LonginContext.js) -> Context API used to handle custom login. 
-  ```javascript
-  const LoginContext = createContext({
-  isAuth: false,
-  email: '',
-  name: '',
-  login: () => {},
-  setName: () => {},
-  setEmail: () => {},
-});
-```
+  - [LoginContext.js](/src/Components/LonginContext.js) -> Context API used to handle custom login.
+    ```javascript
+    const LoginContext = createContext({
+    isAuth: false,
+    email: '',
+    name: '',
+    login: () => {},
+    setName: () => {},
+    setEmail: () => {},
+  });
+  ```
 ## 5. Present a form for user input that provides useful form validation and feedback.
 ## 6. Create at least 5 custom components and use it within at least two of your other components.
 ## 7. Use a mix of CSS animations and Transition Component transitions to enhance some aspects of your project.
@@ -103,14 +103,14 @@ const LoginContext = createContext({
   - [LoginContext.js](/src/contexts/LoginContext.js)
   - [Quote.js](/src/Components/Quote.js)
   - [CharacterContext.js](/src/contexts/CharacterContext.js)
-  
+
 ```javascript
 const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
     const loginHandler = () => {
         setIsAuthenticated(!isAuthenticated)
-        
+
     }
     const nameHandler = (personName) =>{
       setName(personName)
@@ -120,7 +120,7 @@ const [isAuthenticated, setIsAuthenticated] = useState(false);
 ```
 - Your app should have component side effects that are handled using the useEffect hook
   - [Quote.js](/src/Components/Quote.js)
-  
+
 ```javascript
 useEffect(() => {
     const fetchItems = async () => {
@@ -136,7 +136,7 @@ useEffect(() => {
     SetQuotechange(quotes);
   };
   const items = useCharacterContext()
-  
+
   return quotes.map((item) => {
     const author = item.author;
 

@@ -33,11 +33,11 @@ export default function ImgMediaCard() {
             <CardMedia
               className={classes.profile}
               component='img'
-              alt='Contemplative Reptile'
+              alt={user.name}
               height='140'
               width='140'
               image={user.picture}
-              title='Contemplative Reptile'
+              title={user.name}
             />
             <CardContent>
               <Typography gutterBottom variant='h5' component='h2'>

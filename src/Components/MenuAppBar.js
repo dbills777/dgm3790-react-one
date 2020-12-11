@@ -21,6 +21,7 @@ import AuthLogoutTest from './AuthLogoutTest';
 const useStyles = makeStyles((theme) => ({
   appBar: {
     backgroundColor: '#018619',
+    height: '7rem'
   },
   grow: {
     flexGrow: 1,
