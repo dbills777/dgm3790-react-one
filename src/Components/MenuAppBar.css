@@ -9,6 +9,7 @@
     background-image: url('../images/sidebar.jpg');
     background-size: contain;
     background-repeat: no-repeat;
+    /* border-radius: 10px; */
 
 }
 .drawer-header{

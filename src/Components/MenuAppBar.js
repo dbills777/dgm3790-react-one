@@ -106,6 +106,7 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
 
   return (
     <div className={classes.appBar}>
+
       <AppBar
         style={{
           background: 'transparent',
@@ -130,6 +131,8 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
             <h3 className='drawer-header'>Breaking Bad Application</h3>
             <Divider />
             <List className='color'>
+            {authContext.isAuth || isAuthenticated ? (
+              <>
               <ListItem>
                 <NavLink
                   to='/characters'
@@ -157,6 +160,8 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
                   Episodes
                 </NavLink>
               </ListItem>
+            </>
+            ) : (<ListItem>Login First</ListItem>)}
             </List>
           </Drawer>
           {!authContext.isAuth && !isAuthenticated ? (
