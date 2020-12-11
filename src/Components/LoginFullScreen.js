@@ -21,13 +21,13 @@ const useStyles = makeStyles((theme) => ({
     height: '200px',
     maxWidth: '75vw',
     padding: '5rem',
-    backgroundColor: 'transparent',
   },
   image: {
     backgroundImage:
       'url(https://www.pngkit.com/png/full/364-3644816_related-wallpapers-los-pollos-hermanos-png.png)',
     backgroundRepeat: 'no-repeat',
-    // backgroundColor: 'black',
+    backdropFilter: 'blur(40px)',
+    backgroundColor: 'rgba(0, 0, 0, 0.1)',
     backgroundSize: 'contain',
     backgroundPosition: 'center',
   },

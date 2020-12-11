@@ -38,23 +38,28 @@ function createData(title, season, number, date, appears) {
 const useStyles = makeStyles({
   root: {
     width: '80%',
+    position: 'relative',
+    zIndex: '1',
+    backdropFilter: 'blur(40px)',
+    backgroundColor: 'rgba(120, 120, 120, 0.6)',
   },
   container: {
-    maxHeight: 500,
+    maxHeight: 600,
   },
   table: {
     scrollbar: '#F5f5f5',
     minWidth: 650,
-    color: '#111',
-    backgroundColor: fade('#333', 0.45),
+    backgroundColor: 'rgba(120, 120, 120, 0.6)',
   },
   header: {
-    backgroundColor: fade('#333', 0.45),
+    // backgroundColor: fade('#333', 0.45),
     fontSize: '3rem',
     padding: '1.5rem',
     color: '#222',
     textAlign: 'Center',
     textDecoration: 'underline',
+    backdropFilter: 'blur(40px)',
+    backgroundColor: 'rgba(120, 120, 120, 0.6)',
   },
   row: {
     '&:hover': {
