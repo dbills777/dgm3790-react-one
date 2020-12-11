@@ -13,10 +13,8 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-// import CardUser from './CardUser'
 import './Card.css';
 import { useCharacterContext } from '../contexts/CharacterContext';
-// import { useAuth0 } from '@auth0/auth0-react';
 
 const useStyles = makeStyles((theme) => ({
   root: {
