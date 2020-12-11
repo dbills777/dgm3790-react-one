@@ -19,10 +19,11 @@ import { useAuth0 } from '@auth0/auth0-react';
 import AuthLogoutTest from './AuthLogoutTest';
 
 const useStyles = makeStyles((theme) => ({
-  appBar: {
-    backgroundColor: '#018619',
-    height: '7rem'
-  },
+  // appBar: {
+  //   backgroundColor: '#018619',
+  //   background: "rgba(255, 255, 255, 0)",
+  //   height: '7rem',
+  // },
   grow: {
     flexGrow: 1,
   },
@@ -52,18 +53,8 @@ const useStyles = makeStyles((theme) => ({
       width: 'auto',
     },
   },
-  searchIcon: {
-    padding: theme.spacing(0, 2),
-    height: '100%',
-    position: 'absolute',
-    pointerEvents: 'none',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  inputRoot: {
-    color: 'inherit',
-  },
+
+
   inputInput: {
     padding: theme.spacing(1, 1, 1, 0),
     // vertical padding + font size from searchIcon
@@ -115,7 +106,13 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
 
   return (
     <div className={classes.appBar}>
-      <AppBar position='static'>
+      <AppBar
+        style={{
+          background: 'transparent',
+          boxShadow: 'none',
+          backgroundColor: 'rgba(100, 100, 100, 0.4)',
+        }}
+      >
         <Toolbar className={classes.appBar}>
           <IconButton
             edge='start'
@@ -217,7 +214,7 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
           <NavLink className={classes.navLinks} to='/'>
             {!isAuthenticated ? (
               <>
-                <Button > Sign UP </Button>
+                <Button> Sign UP </Button>
               </>
             ) : (
               <>

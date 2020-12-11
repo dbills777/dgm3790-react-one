@@ -4,7 +4,12 @@
 }
 .color{
     height: 100vh;
-    background-color: #018619;
+    background-color: #000000;
+    color: white;
+    background-image: url('../images/sidebar.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+
 }
 .drawer-header{
     color: rgb(255, 255, 255);
@@ -17,4 +22,7 @@
     border: none;
     color: red
 
+}
+.white{
+    color: white;
 }

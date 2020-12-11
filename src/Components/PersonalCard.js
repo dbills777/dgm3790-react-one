@@ -12,6 +12,10 @@ import { useAuth0 } from '@auth0/auth0-react';
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
+    padding: '2rem',
+    zIndex: '1',
+    backdropFilter: 'blur(10px)',
+    backgroundColor: 'rgba(120, 120, 120, 0.4)',
   },
   profile: {
     height: 100,
@@ -52,12 +56,10 @@ export default function ImgMediaCard() {
             </CardContent>
           </CardActionArea>
           <CardActions>
-            <Button size='small' color='primary'>
-              {user.email}
-            </Button>
-            <Button size='small' color='primary'>
-              Learn More
-            </Button>
+            <Typography variant='body2' color='textSecondary' component='p'>
+             Email Address: {user.email}
+            </Typography>
+
           </CardActions>
           {console.log(user)}
         </Card>

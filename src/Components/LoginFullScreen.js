@@ -21,12 +21,13 @@ const useStyles = makeStyles((theme) => ({
     height: '200px',
     maxWidth: '75vw',
     padding: '5rem',
+    backgroundColor: 'transparent',
   },
   image: {
     backgroundImage:
       'url(https://www.pngkit.com/png/full/364-3644816_related-wallpapers-los-pollos-hermanos-png.png)',
     backgroundRepeat: 'no-repeat',
-    backgroundColor: 'black',
+    // backgroundColor: 'black',
     backgroundSize: 'contain',
     backgroundPosition: 'center',
   },
@@ -49,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
-    backgroundColor: '#018619',
+    backgroundColor: 'black',
     color: 'white',
   },
   icon: {

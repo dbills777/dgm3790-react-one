@@ -31,7 +31,8 @@ const useStyles = makeStyles((theme) => ({
     position: 'relative',
     zIndex: '1',
     backdropFilter: 'blur(40px)',
-    backgroundColor: 'gray',
+    backgroundColor: 'rgba(120, 120, 120, 0.4)',
+    // color: 'white',
   },
   media: {
     width: '100%',
@@ -39,7 +40,6 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: '56.25%',
     backdropFilter: 'blur(40px)',
     borderRadius: '1rem',
-
     position: 'relative',
   },
   clicked: {
@@ -63,7 +63,7 @@ const useStyles = makeStyles((theme) => ({
     padding: '2px',
     margin: '5px',
     borderRadius: '50%',
-    backgroundColor: 'light-gray',
+    // backgroundColor: 'light-gray',
   },
 }));
 
@@ -82,7 +82,7 @@ export default function ListCard() {
       <Card key={item.char_id} className={classes.root}>
         <CardHeader
           action={
-            <IconButton aria-label='settings'>
+            <IconButton aria-label='settings'color = {'white'}>
               <MoreVertIcon />
             </IconButton>
           }
@@ -90,12 +90,13 @@ export default function ListCard() {
           subheader={item.name}
         />
         <CardMedia
+          color= 'white'
           className={classes.media}
           image={item.img}
           title={item.name}
         />
         <CardContent>
-          <Typography variant='body2' color='textSecondary' component='p'>
+          <Typography variant='body2' color='white' component='p'>
             <strong>Nick Name: </strong>
             {item.nickname}
           </Typography>

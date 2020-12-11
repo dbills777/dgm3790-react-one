@@ -18,6 +18,11 @@ export default function Quote() {
     fontSize: '1.5rem',
     minWidth: '75%',
     maxWidth: '75%',
+    position: 'relative',
+    padding: '2rem',
+    zIndex: '1',
+    backdropFilter: 'blur(10px)',
+    backgroundColor: 'rgba(120, 120, 120, 0.4)',
   };
   useEffect(() => {
     const fetchItems = async () => {

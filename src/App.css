@@ -1,13 +1,13 @@
 body {
   background-color: rgb(3, 3, 3);
-  max-width: 90vw;
+  /* max-width: 90vw; */
   margin: 0 auto;
+  background-image: url('./images/background.png');
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-size: fit;
 }
 .image {
-  background-image: url('./images/wallpaper.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
   height: 25vh;
   width: 90vw;
 }
@@ -51,7 +51,7 @@ body {
   color: #fff !important;
   text-transform: uppercase;
   text-decoration: none;
-  background: #018619;
+  background: #002fff;
   padding: 20px;
   border-radius: 5px;
   display: inline-block;
@@ -61,7 +61,7 @@ body {
   outline: none;
 }
 .login-container {
-  color: #fff;
+  color: rgb(33, 33, 33);
 }
 .profile-pic {
   height: 40px;
