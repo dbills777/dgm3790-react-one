@@ -8,7 +8,7 @@ const AuthLogoutTest = () => {
 
   return (
     <NavLink to='/login'>
-      <Button color='default' variant='contained' onClick={() => logout()}>
+      <Button style= {{color: 'white', backgroundColor: 'black', marginRight: '1rem'}} variant='contained' onClick={() => logout()}>
         Logout
       </Button>
     </NavLink>

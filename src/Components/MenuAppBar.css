@@ -1,6 +1,7 @@
 .drawer{
     background-color: rgba(0, 0, 0, 0.3);
    backdrop-filter:  blur(2px) saturate(150%) grayscale(10%);
+   text-align: center;
 }
 .color{
     height: 100vh;
@@ -9,7 +10,6 @@
     background-image: url('../images/sidebar.jpg');
     background-size: contain;
     background-repeat: no-repeat;
-    /* border-radius: 10px; */
 
 }
 .drawer-header{
@@ -19,11 +19,6 @@
     margin: 0;
     height: 6rem;
 }
-.outbtn{
-    border: none;
-    color: red
-
-}
-.white{
-    color: white;
+.appBar{
+    margin-bottom: 50vw;
 }

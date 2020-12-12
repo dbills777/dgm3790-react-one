@@ -6,6 +6,7 @@ body {
   background-repeat: no-repeat;
   background-position-x: center;
   background-size: fit;
+  background-attachment: fixed;
 }
 .image {
   height: 25vh;

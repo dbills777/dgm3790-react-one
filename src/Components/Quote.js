@@ -53,11 +53,14 @@ export default function Quote() {
         <button className='btn' onClick={getNewQuote}>
           New quote
         </button>
-        <em className='italics'>
-          <h1>
-            <strong></strong> "{item.quote}"
-          </h1>
-        </em>
+        <br></br>
+        <div className='bubble' style= {style}>
+          <em className='italics'>
+            <h1>
+              <strong></strong> "{item.quote}"
+            </h1>
+          </em>
+        </div>
 
         <p className='flex'>
           {image.length ? (

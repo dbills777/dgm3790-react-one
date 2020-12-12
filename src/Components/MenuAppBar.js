@@ -14,16 +14,16 @@ import {
   makeStyles,
 } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
+import SupervisedUserCircleIcon from '@material-ui/icons/SupervisedUserCircle';
 import { NavLink } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 import AuthLogoutTest from './AuthLogoutTest';
 
 const useStyles = makeStyles((theme) => ({
-  // appBar: {
-  //   backgroundColor: '#018619',
-  //   background: "rgba(255, 255, 255, 0)",
-  //   height: '7rem',
-  // },
+  appBar: {
+    background: "rgba(255, 255, 255, 0)",
+    height: '7rem',
+  },
   grow: {
     flexGrow: 1,
   },
@@ -81,6 +81,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: '1rem',
     color: '#fff',
     textDecoration: 'none',
+    fontSize: '20px',
   },
   notActive: {
     marginRight: '1rem',
@@ -106,7 +107,6 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
 
   return (
     <div className={classes.appBar}>
-
       <AppBar
         style={{
           background: 'transparent',
@@ -131,37 +131,40 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
             <h3 className='drawer-header'>Breaking Bad Application</h3>
             <Divider />
             <List className='color'>
-            {authContext.isAuth || isAuthenticated ? (
-              <>
-              <ListItem>
-                <NavLink
-                  to='/characters'
-                  className={classes.navLinks}
-                  onClick={handleDrawerToggle}
-                >
-                  Characters
-                </NavLink>
-              </ListItem>
-              <ListItem>
-                <NavLink
-                  to='/quotes'
-                  onClick={handleDrawerToggle}
-                  className={classes.navLinks}
-                >
-                  Quotes
-                </NavLink>
-              </ListItem>
-              <ListItem>
-                <NavLink
-                  to='/episodes'
-                  className={classes.navLinks}
-                  onClick={handleDrawerToggle}
-                >
-                  Episodes
-                </NavLink>
-              </ListItem>
-            </>
-            ) : (<ListItem>Login First</ListItem>)}
+              {authContext.isAuth || isAuthenticated ? (
+                <>
+                  <ListItem>
+                    <NavLink
+                      to='/characters'
+                      className={classes.navLinks}
+                      onClick={handleDrawerToggle}
+                    >
+                      
+                      Characters
+                    </NavLink>
+                  </ListItem>
+                  <ListItem>
+                    <NavLink
+                      to='/quotes'
+                      onClick={handleDrawerToggle}
+                      className={classes.navLinks}
+                    >
+                      Quotes
+                    </NavLink>
+                  </ListItem>
+                  <ListItem>
+                    <NavLink
+                      to='/episodes'
+                      className={classes.navLinks}
+                      onClick={handleDrawerToggle}
+                    >
+                      Episodes
+                    </NavLink>
+                  </ListItem>
+                </>
+              ) : (
+                <ListItem>Login First</ListItem>
+              )}
             </List>
           </Drawer>
           {!authContext.isAuth && !isAuthenticated ? (
@@ -219,7 +222,16 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
           <NavLink className={classes.navLinks} to='/'>
             {!isAuthenticated ? (
               <>
-                <Button> Sign UP </Button>
+                <Button
+                  style={{
+                    color: 'white',
+                    backgroundColor: 'black',
+                    marginRight: '1rem',
+                  }}
+                >
+                  {' '}
+                  Sign UP{' '}
+                </Button>
               </>
             ) : (
               <>
@@ -238,7 +250,16 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
               <Button></Button>
             ) : (
               <>
-                <Button onClick={() => authContext.login()}>Logout</Button>
+                <Button
+                  style={{
+                    color: 'white',
+                    backgroundColor: 'black',
+                    marginRight: '1rem',
+                  }}
+                  onClick={() => authContext.login()}
+                >
+                  Logout
+                </Button>
                 <img
                   className={'profile-pic'}
                   src={
