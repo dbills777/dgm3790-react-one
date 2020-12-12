@@ -14,7 +14,6 @@ import {
   makeStyles,
 } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
-import SupervisedUserCircleIcon from '@material-ui/icons/SupervisedUserCircle';
 import { NavLink } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 import AuthLogoutTest from './AuthLogoutTest';
@@ -139,7 +138,7 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
                       className={classes.navLinks}
                       onClick={handleDrawerToggle}
                     >
-                      
+
                       Characters
                     </NavLink>
                   </ListItem>
