@@ -86,7 +86,7 @@ const useStyles = makeStyles((theme) => ({
 
     '&:hover': {
       color: '#7ac9d7',
-      textDecoration: 'underline'
+      textDecoration: 'underline',
     },
     // '&:last-child': {
     //   borderRight: 'solid 1px #cccccc',
@@ -94,8 +94,9 @@ const useStyles = makeStyles((theme) => ({
   },
   notActive: {
     marginRight: '1rem',
-    color: '#999',
-    textDecoration: 'none',
+    color: 'black',
+    fontSize: '20px',
+    textDecoration: 'line-through',
     cursor: 'not-allowed',
   },
 }));
@@ -220,7 +221,7 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
                   to='#'
                   onClick={alertMessage}
                 >
-                  Episode Table
+                  Episodes
                 </NavLink>
               </div>
             </>
