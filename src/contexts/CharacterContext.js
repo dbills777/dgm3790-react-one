@@ -14,7 +14,6 @@ export const CharacterContextProvider = (props) => {
     const getCharacters = async () => {
       try {
         const response = await axios.get(url);
-        // console.log(response.data);
         setCharacters(response.data);
       } catch (error) {
         console.log(error);

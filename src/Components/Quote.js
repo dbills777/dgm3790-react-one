@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Slide from '@material-ui/core/Slide';
 import './Quote.css';
-
 import { useCharacterContext } from '../contexts/CharacterContext';
 
 export default function Quote() {
@@ -54,7 +53,7 @@ export default function Quote() {
           New quote
         </button>
         <br></br>
-        <div className='bubble' style= {style}>
+        <div className='bubble' style={style}>
           <em className='italics'>
             <h3>
               <strong></strong> "{item.quote}"

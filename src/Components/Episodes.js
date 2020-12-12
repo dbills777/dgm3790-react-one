@@ -52,7 +52,6 @@ const useStyles = makeStyles({
     backgroundColor: 'rgba(120, 120, 120, 0.6)',
   },
   header: {
-    // backgroundColor: fade('#333', 0.45),
     fontSize: '3rem',
     padding: '1.5rem',
     color: '#222',

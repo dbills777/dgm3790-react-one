@@ -207,7 +207,6 @@ export default function SignInSide(props) {
                     ) => {
                       try {
                         setFirstName(user.name);
-                        // setLastName(values.lastName);
                         setEmail(user.email);
                         submitHandler(values);
                         authContext.login();

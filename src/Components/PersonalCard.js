@@ -56,9 +56,8 @@ export default function ImgMediaCard() {
           </CardActionArea>
           <CardActions>
             <Typography variant='body2' color='textSecondary' component='p'>
-             Email Address: {user.email}
+              Email Address: {user.email}
             </Typography>
-
           </CardActions>
           {console.log(user)}
         </Card>

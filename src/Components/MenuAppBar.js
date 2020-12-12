@@ -88,9 +88,6 @@ const useStyles = makeStyles((theme) => ({
       color: '#7ac9d7',
       textDecoration: 'underline',
     },
-    // '&:last-child': {
-    //   borderRight: 'solid 1px #cccccc',
-    // },
   },
   notActive: {
     marginRight: '1rem',
@@ -246,9 +243,7 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
               aria-label='account of current user'
               aria-haspopup='true'
               color='inherit'
-            >
-              {/* <AccountCircle /> */}
-            </IconButton>
+            ></IconButton>
           </div>
 
           <NavLink className={classes.navLinks} to='/'>

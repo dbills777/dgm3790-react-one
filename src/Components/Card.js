@@ -61,13 +61,11 @@ const useStyles = makeStyles((theme) => ({
     padding: '2px',
     margin: '5px',
     borderRadius: '50%',
-    // backgroundColor: 'light-gray',
   },
 }));
 
 export default function ListCard() {
   const items = useCharacterContext();
-  // const { user, isAuthenticated } = useAuth0();
   console.log(items.characters);
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState({});
@@ -80,7 +78,7 @@ export default function ListCard() {
       <Card key={item.char_id} className={classes.root}>
         <CardHeader
           action={
-            <IconButton aria-label='settings'color = {'white'}>
+            <IconButton aria-label='settings' color={'white'}>
               <MoreVertIcon />
             </IconButton>
           }
@@ -88,7 +86,7 @@ export default function ListCard() {
           subheader={item.name}
         />
         <CardMedia
-          color= 'white'
+          color='white'
           className={classes.media}
           image={item.img}
           title={item.name}
