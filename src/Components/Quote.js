@@ -19,7 +19,7 @@ export default function Quote() {
     minWidth: '75%',
     maxWidth: '75%',
     position: 'relative',
-    padding: '2rem',
+    padding: '1rem',
     zIndex: '1',
     backdropFilter: 'blur(10px)',
     backgroundColor: 'rgba(120, 120, 120, 0.4)',
@@ -56,9 +56,9 @@ export default function Quote() {
         <br></br>
         <div className='bubble' style= {style}>
           <em className='italics'>
-            <h1>
+            <h3>
               <strong></strong> "{item.quote}"
-            </h1>
+            </h3>
           </em>
         </div>
 

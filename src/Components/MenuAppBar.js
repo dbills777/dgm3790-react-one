@@ -20,7 +20,7 @@ import AuthLogoutTest from './AuthLogoutTest';
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
-    background: "rgba(255, 255, 255, 0)",
+    background: 'rgba(255, 255, 255, 0)',
     height: '7rem',
   },
   grow: {
@@ -53,7 +53,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 
-
   inputInput: {
     padding: theme.spacing(1, 1, 1, 0),
     // vertical padding + font size from searchIcon
@@ -77,10 +76,21 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   navLinks: {
-    marginRight: '1rem',
     color: '#fff',
     textDecoration: 'none',
     fontSize: '20px',
+    // justifyContent: 'end',
+    margin: '1rem',
+    alignItems: 'center',
+    transition: 'all 0.3s',
+
+    '&:hover': {
+      color: '#7ac9d7',
+      textDecoration: 'underline'
+    },
+    // '&:last-child': {
+    //   borderRight: 'solid 1px #cccccc',
+    // },
   },
   notActive: {
     marginRight: '1rem',
@@ -137,8 +147,12 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
                       to='/characters'
                       className={classes.navLinks}
                       onClick={handleDrawerToggle}
+                      style={{
+                        display: 'block',
+                        textAlign: 'center',
+                        width: '100%',
+                      }}
                     >
-
                       Characters
                     </NavLink>
                   </ListItem>
@@ -147,6 +161,11 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
                       to='/quotes'
                       onClick={handleDrawerToggle}
                       className={classes.navLinks}
+                      style={{
+                        display: 'block',
+                        textAlign: 'center',
+                        width: '100%',
+                      }}
                     >
                       Quotes
                     </NavLink>
@@ -156,13 +175,26 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
                       to='/episodes'
                       className={classes.navLinks}
                       onClick={handleDrawerToggle}
+                      style={{
+                        display: 'block',
+                        textAlign: 'center',
+                        width: '100%',
+                      }}
                     >
                       Episodes
                     </NavLink>
                   </ListItem>
                 </>
               ) : (
-                <ListItem>Login First</ListItem>
+                <ListItem
+                  style={{
+                    display: 'block',
+                    textAlign: 'center',
+                    width: '100%',
+                  }}
+                >
+                  Login First
+                </ListItem>
               )}
             </List>
           </Drawer>
