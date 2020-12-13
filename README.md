@@ -1,6 +1,6 @@
 ## 1. Effectively use conditional logic and JavaScript array methods(e.g. Filter, Map, Reduce, Find) to render large lists.
 
-- [Quotes.js](/src/Components/Quotes.js) map/conditional logic
+- [Quotes.js](/src/Components/Quote.js) map/conditional logic
 
 ```javascript
 return quotes.map((item) => {
@@ -76,7 +76,7 @@ return quotes.map((item) => {
 
 ## 4. Allow communication between components using props and the Context API.
 
-- [EpisodeContext.js](/src/Components/EpisodeContext.js) -> Props Communication between components.
+- [EpisodeContext.js](/src/contexts/EpisodeContext.js) -> Props Communication between components.
 
 ```javascript
 export const EpisodeContextProvider = (props) => {
@@ -116,7 +116,7 @@ const LoginContext = createContext({
 });
 ```
 
-- [LoginContext.js](/src/Components/LonginContext.js) -> Context API used to handle custom login.
+- [LoginContext.js](/src/contexts/LonginContext.js) Context API used to handle custom login.
   ```javascript
   const LoginContext = createContext({
     isAuth: false,
@@ -130,7 +130,7 @@ const LoginContext = createContext({
 
 ## 5. Present a form for user input that provides useful form validation and feedback.
 
-- [LoginFullScreen.js](/src/Components/LoginFullScreen.js) -> Context API used to handle custom
+- [LoginFullScreen.js](/src/Components/LoginFullScreen.js) Context API used to handle custom
 
 ```javascript
 <Formik
