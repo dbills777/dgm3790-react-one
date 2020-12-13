@@ -1,8 +1,78 @@
 ## 1. Effectively use conditional logic and JavaScript array methods(e.g. Filter, Map, Reduce, Find) to render large lists.
 
-## 2. Encapsulate your code as React functional components.
+- [Quotes.js](/src/Components/Quotes.js) map/conditional logic
 
+```javascript
+return quotes.map((item) => {
+  const author = item.author;
+
+  const image = items.characters.filter((person) => {
+    return person.name === author || person.nickname === author;
+  });
+  const photo = image.map((person) => person.img);
+
+  return (
+    <div className='quoteDiv' key={item.quote_id} style={style}>
+      <button className='btn' onClick={getNewQuote}>
+        New quote
+      </button>
+      <br></br>
+      <div className='bubble' style={style}>
+        <em className='italics'>
+          <h3>
+            <strong></strong> "{item.quote}"
+          </h3>
+        </em>
+      </div>
+
+      <p className='flex'>
+        {image.length ? (
+          <>
+            <Slide direction='left' in={checked} mountOnEnter unmountOnExit>
+              <img alt={photo.id} className='img' src={photo}></img>
+            </Slide>
+          </>
+        ) : null}
+        -{item.author}, {item.series}
+      </p>
+    </div>
+  );
+});
+```
+
+- [Episodes.js](/src/Components/Episodes.js) Large List display
+
+``` javascript
+<TableBody>
+  {rows
+    .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+    .map((row) => {
+      return (
+        <TableRow hover role='checkbox' tabIndex={-1} key={row.episode_id}>
+          {columns.map((column) => {
+            const value = row[column.id];
+            return (
+              <TableCell key={column.id} align={column.align}>
+                {column.text}
+                {column.format && typeof value === 'number'
+                  ? column.format(value)
+                  : value}
+              </TableCell>
+            );
+          })}
+        </TableRow>
+      );
+    })}
+</TableBody>
+```
+
+## 2. Encapsulate your code as React functional components.
+- Components encapsulated as functional Components, Including CSS files if Component has CSS outside of React functional component.
 ## 3. Work with command-line tools and NPM to create and manage your project within a real development toolset.
+- NPM
+- VS Code
+- Git
+- Zsh
 
 ## 4. Allow communication between components using props and the Context API.
 
@@ -88,9 +158,23 @@ lastName: Yup.string()
 
 ## 6. Create at least 5 custom components and use it within at least two of your other components.
 
+- [Card.js](/src/contexts/CharacterContext.js) Character Cards
+- [Carduser.js](/src/contexts/EpisodeContext.js) User Card when logging in with Auth0
+- [Episode.js](/src/contexts/LoginContext.js) Episode Table
+- [MenuAppBar.js](/src/contexts/LoginContext.js) Menu/Nav Bar
+- [PersonalCard.js](/src/contexts/LoginContext.js) Personal display card upon login
+- [LoginFullScreen.js](/src/contexts/LoginContext.js) Login Form Context
+- [Quotes.js](/src/contexts/LoginContext.js) Quotes display
+
 ## 7. Use a mix of CSS animations and Transition Component transitions to enhance some aspects of your project.
 
+- Quotes display image slide in.
+- Login Lock animation.
+- Hamburger Menu open animation/blur
+
 ## 8. Connect to a server using HTTP and display retrieved data.
+
+- Connected to Breaking Bad API
 
 ## 9. Provide at least 3 different routes with navigation between them using React Router.
 
@@ -101,101 +185,11 @@ lastName: Yup.string()
 <Route path='/login' component={LoginFullScreen} />
 <Route path='/' component={LoginFullScreen} />
 ```
+
 ## 10. Manage your application's state using Hooks and the Context API.
+
 - [CharacterContext.js](/src/contexts/CharacterContext.js) Character Context
 - [EpisodeContext.js](/src/contexts/EpisodeContext.js) Episode Table Context
 - [LoginContext.js](/src/contexts/LoginContext.js) Login Form Context
 
 ## 11. Structure, document, and deploy your final project code according to common industry practices.
-
-## Create a Signup or Login form that captures at least 3 bits of user information
-
-- The elements in the form must indicate if they are required or not.
-
-- [LoginFullScreen.js](/src/Components/LoginFullScreen.js)
-
-```javascript
-            email: Yup.string()
-              .email('Must be a Valid Email address')
-              .max(30)
-              .required('Email is Required'),
-            firstName: Yup.string()
-              .min(3, 'First Name Must be 3 characters or more')
-              .max(40, 'Name is too long')
-              .required('First Name is Required'),
-            lastName: Yup.string()
-              .min(3, 'Last Name Must be 3 characters or more')
-              .max(40, 'Name is too long')
-              .required('Last Name is Required'),
-```
-
-- uses of useEffect code is the
-  - [CharacterContext.js](/src/contexts/CharacterContext.js)
-  - [Quote.js](/src/Components/Quote.js)
-- The submission of the form must be stored in local state using the useContext hook.
-  - [LoginContext.js](/src/contexts/LoginContext.js)
-
-```javascript
-const LoginContext = createContext({
-  isAuth: false,
-  email: '',
-  name: '',
-  login: () => {},
-  setName: () => {},
-  setEmail: () => {},
-});
-```
-
-- All component state must be handled using the useState hook
-  - several examples
-  - [LoginContext.js](/src/contexts/LoginContext.js)
-  - [Quote.js](/src/Components/Quote.js)
-  - [CharacterContext.js](/src/contexts/CharacterContext.js)
-
-```javascript
-const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-    const loginHandler = () => {
-        setIsAuthenticated(!isAuthenticated)
-
-    }
-    const nameHandler = (personName) =>{
-      setName(personName)
-    }
-    const emailHandler = (email) => {
-      setEmail(email);
-```
-
-- Your app should have component side effects that are handled using the useEffect hook
-  - [Quote.js](/src/Components/Quote.js)
-
-```javascript
-useEffect(() => {
-    const fetchItems = async () => {
-      const result = await axios(
-        `https://www.breakingbadapi.com/api/quote/random?author`
-      );
-      setQuotes(result.data);
-      console.log(result.data);
-    };
-    fetchItems();
-  }, [quotechange]);
-  const getNewQuote = () => {
-    SetQuotechange(quotes);
-  };
-  const items = useCharacterContext()
-
-  return quotes.map((item) => {
-    const author = item.author;
-
-    const image = items.characters.filter((person) => {
-      return person.name === author || person.nickname === author;
-    });
-```
-
-- Displays Data captured from input to the screen after form submit
-
-```javascript
-Hello {authContext.name}! Thank You, We will send your Emails to {authContext.email}.
-```
