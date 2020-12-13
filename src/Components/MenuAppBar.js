@@ -20,8 +20,8 @@ import AuthLogoutTest from './AuthLogoutTest';
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
-    background: 'rgba(255, 255, 255, 0)',
-    height: '7rem',
+    // background: 'rgba(255, 255, 255, 0)',
+    height: '5rem',
   },
   grow: {
     flexGrow: 1,
@@ -91,7 +91,7 @@ const useStyles = makeStyles((theme) => ({
   },
   notActive: {
     marginRight: '1rem',
-    color: 'black',
+    color: 'gray',
     fontSize: '20px',
     textDecoration: 'line-through',
     cursor: 'not-allowed',
@@ -118,7 +118,7 @@ export default function PrimarySearchAppBar({ getQuery, props }) {
         style={{
           background: 'transparent',
           boxShadow: 'none',
-          backgroundColor: 'rgba(100, 100, 100, 0.4)',
+          // backgroundColor: 'rgba(100, 100, 100, 0.4)',
         }}
       >
         <Toolbar className={classes.appBar}>

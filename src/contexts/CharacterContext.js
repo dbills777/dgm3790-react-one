@@ -9,7 +9,6 @@ export const CharacterContextProvider = (props) => {
   const [characters, setCharacters] = useState([]);
 
   const url = 'https://www.breakingbadapi.com/api/characters';
-
   useEffect(() => {
     const getCharacters = async () => {
       try {
