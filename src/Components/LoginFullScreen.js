@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
     padding: '2rem',
   },
   text: {
-    color: '#333',
+    color: '#444',
   },
   avatar: {
     margin: theme.spacing(1),
