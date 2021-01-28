@@ -1,6 +1,6 @@
 ## 1. Effectively use conditional logic and JavaScript array methods(e.g. Filter, Map, Reduce, Find) to render large lists.
 
-- [Quotes.js](/src/Components/Quote.js) map/conditional logic
+- [Quotes.js](/src/Components/Quote.js) map/conditional logic.
 
 ```javascript
 return quotes.map((item) => {
@@ -42,7 +42,7 @@ return quotes.map((item) => {
 
 - [Episodes.js](/src/Components/Episodes.js) Large List display
 
-``` javascript
+```javascript
 <TableBody>
   {rows
     .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
@@ -67,8 +67,11 @@ return quotes.map((item) => {
 ```
 
 ## 2. Encapsulate your code as React functional components.
+
 - Components encapsulated as functional Components, Including CSS files if Component has CSS outside of React functional component.
+
 ## 3. Work with command-line tools and NPM to create and manage your project within a real development toolset.
+
 - NPM
 - VS Code
 - Git
