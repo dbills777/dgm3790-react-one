@@ -1,6 +1,6 @@
 ## 1. Effectively use conditional logic and JavaScript array methods(e.g. Filter, Map, Reduce, Find) to render large lists.
 
-- [Quotes.js](/src/Components/Quote.js) map/conditional logic.
+- [Quotes.js](/src/Components/Quote.js) map/conditional logic
 
 ```javascript
 return quotes.map((item) => {
