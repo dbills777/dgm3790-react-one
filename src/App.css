@@ -1,7 +1,6 @@
 body {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   background-color: rgb(3, 3, 3);
-  /* max-width: 90vw; */
   margin: 0 auto;
   background-image: url('./images/background.png');
   background-repeat: no-repeat;
