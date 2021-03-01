@@ -4,6 +4,7 @@ import MenuAppBar from './Components/MenuAppBar';
 import Quotes from './Components/Quote';
 import Episodes from './Components/Episodes';
 import CardUser from './Components/CardUser';
+import Products from './Components/Products';
 import LoginFullScreen from './Components/LoginFullScreen';
 import { Switch, Route } from 'react-router-dom';
 import { CharacterContextProvider } from './contexts/CharacterContext';
@@ -16,11 +17,7 @@ const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
 
 const App = () => {
   return (
-    <Auth0Provider
-      domain={domain}
-      clientId={clientId}
-      redirectUri={window.location.origin}
-    >
+    <Auth0Provider domain={domain} clientId={clientId} redirectUri={window.location.origin}>
       <LoginContextProvider>
         <CharacterContextProvider>
           <EpisodeContextProvider>
@@ -30,6 +27,7 @@ const App = () => {
               <div className='container'>
                 <Switch>
                   <Route path='/quotes' component={Quotes} />
+                  <Route path='/products' component={Products} />
                   <Route path='/episodes' component={Episodes} />
                   <Route path='/characters' component={CardUser} />
                   <Route path='/login' component={LoginFullScreen} />

@@ -19,12 +19,7 @@ const AuthLoginTest = () => {
 
   return (
     !isAuthenticated && (
-      <Button
-        onClick={() => loginWithRedirect()}
-        fullWidth
-        variant='contained'
-        className={classes.submit}
-      >
+      <Button onClick={() => loginWithRedirect()} fullWidth variant='contained' className={classes.submit}>
         Google Login
       </Button>
     )

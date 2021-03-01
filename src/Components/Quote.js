@@ -25,9 +25,7 @@ export default function Quote() {
   };
   useEffect(() => {
     const fetchItems = async () => {
-      const result = await axios(
-        `https://www.breakingbadapi.com/api/quote/random?author`
-      );
+      const result = await axios(`https://www.breakingbadapi.com/api/quote/random?author`);
       setQuotes(result.data);
       console.log(result.data);
     };
