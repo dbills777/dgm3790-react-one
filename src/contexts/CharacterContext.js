@@ -9,10 +9,12 @@ export const CharacterContextProvider = (props) => {
   const [characters, setCharacters] = useState([]);
 
   const url = 'https://www.breakingbadapi.com/api/characters';
+  // const url = 'http://localhost:5000/my-characters';
   useEffect(() => {
     const getCharacters = async () => {
       try {
         const response = await axios.get(url);
+        console.log(response.data);
         setCharacters(response.data);
       } catch (error) {
         console.log(error);
@@ -21,11 +23,7 @@ export const CharacterContextProvider = (props) => {
     getCharacters();
   }, []);
 
-  return (
-    <CharacterContext.Provider value={{ characters }}>
-      {props.children}
-    </CharacterContext.Provider>
-  );
+  return <CharacterContext.Provider value={{ characters }}>{props.children}</CharacterContext.Provider>;
 };
 
 export const useCharacterContext = () => useContext(CharacterContext);

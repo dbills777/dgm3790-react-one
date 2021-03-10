@@ -85,12 +85,7 @@ export default function ListCard() {
           title={classes.title}
           subheader={item.name}
         />
-        <CardMedia
-          color='white'
-          className={classes.media}
-          image={item.img}
-          title={item.name}
-        />
+        <CardMedia color='white' className={classes.media} image={item.img} title={item.name} />
         <CardContent>
           <Typography variant='body2' color='white' component='p'>
             <strong>Nick Name: </strong>
