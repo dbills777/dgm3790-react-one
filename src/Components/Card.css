@@ -2,4 +2,5 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+   color: rgba(195, 195, 195, 0.621)
 }

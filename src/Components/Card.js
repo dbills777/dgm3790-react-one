@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     position: 'relative',
     zIndex: '1',
     backdropFilter: 'blur(40px)',
-    backgroundColor: 'rgba(120, 120, 120, 0.4)',
+    backgroundColor: 'rgba(195, 195, 195, 0.621)',
     // color: 'white',
   },
   media: {
